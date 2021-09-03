@@ -1,0 +1,155 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "93ce7335-f559-4778-b59c-1b902c7a6d67": {
+      "_id": "93ce7335-f559-4778-b59c-1b902c7a6d67",
+      "usernameAttribute": "userName",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedUsernameNode",
+        "name": "Platform Username",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "dbdd918d-68e2-4e93-b58a-bffbfe4e9089": {
+      "_id": "dbdd918d-68e2-4e93-b58a-bffbfe4e9089",
+      "validateInput": false,
+      "passwordAttribute": "password",
+      "_type": {
+        "_id": "ValidatedPasswordNode",
+        "name": "Platform Password",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "837236dc-812a-4fac-a822-58f52197709f": {
+      "_id": "837236dc-812a-4fac-a822-58f52197709f",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "f43e1457-67d4-4d1b-a177-29cdb574d2fb": {
+      "_id": "f43e1457-67d4-4d1b-a177-29cdb574d2fb",
+      "message": {
+        "en": "Security questions"
+      },
+      "_type": {
+        "_id": "KbaCreateNode",
+        "name": "KBA Definition",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "f66a024e-d169-40e3-b0ce-b700c7bf860a": {
+      "_id": "f66a024e-d169-40e3-b0ce-b700c7bf860a",
+      "nodes": [
+        {
+          "_id": "93ce7335-f559-4778-b59c-1b902c7a6d67",
+          "nodeType": "ValidatedUsernameNode",
+          "displayName": "Platform Username"
+        },
+        {
+          "_id": "dbdd918d-68e2-4e93-b58a-bffbfe4e9089",
+          "nodeType": "ValidatedPasswordNode",
+          "displayName": "Platform Password"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "KbaCreateCallbackTest",
+    "identityResource": "managed/user",
+    "uiConfig": {},
+    "entryNodeId": "f66a024e-d169-40e3-b0ce-b700c7bf860a",
+    "nodes": {
+      "837236dc-812a-4fac-a822-58f52197709f": {
+        "x": 361,
+        "y": 20,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "f43e1457-67d4-4d1b-a177-29cdb574d2fb"
+        },
+        "nodeType": "DataStoreDecisionNode",
+        "displayName": "Data Store Decision"
+      },
+      "f66a024e-d169-40e3-b0ce-b700c7bf860a": {
+        "x": 146,
+        "y": 20,
+        "connections": {
+          "outcome": "837236dc-812a-4fac-a822-58f52197709f"
+        },
+        "nodeType": "PageNode",
+        "displayName": "Page Node"
+      },
+      "f43e1457-67d4-4d1b-a177-29cdb574d2fb": {
+        "x": 527,
+        "y": 40,
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "nodeType": "KbaCreateNode",
+        "displayName": "KBA Definition"
+      }
+    },
+    "staticNodes": {
+      "startNode": {
+        "x": 50,
+        "y": 25
+      },
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 527,
+        "y": 167
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 362,
+        "y": 161
+      }
+    }
+  }
+}

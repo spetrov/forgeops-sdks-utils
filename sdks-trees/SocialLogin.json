@@ -1,0 +1,293 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "1c03b46b-d6e2-407c-8f9f-7275be664545": {
+      "_id": "1c03b46b-d6e2-407c-8f9f-7275be664545",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "33b2571b-7aa3-4272-bcc9-32e52d92b407": {
+      "_id": "33b2571b-7aa3-4272-bcc9-32e52d92b407",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "e4c32bd2-1bf8-4f17-80bb-59d64efcbb5e": {
+      "_id": "e4c32bd2-1bf8-4f17-80bb-59d64efcbb5e",
+      "includeLocalAuthentication": true,
+      "filteredProviders": [],
+      "identityAttribute": "mail",
+      "passwordAttribute": "password",
+      "offerOnlyExisting": false,
+      "_type": {
+        "_id": "SelectIdPNode",
+        "name": "Select Identity Provider",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "socialAuthentication",
+          "displayName": "Social Authentication"
+        },
+        {
+          "id": "localAuthentication",
+          "displayName": "Local Authentication"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "199f4784-23f4-435a-b60c-f8dae43fe1fa": {
+      "_id": "199f4784-23f4-435a-b60c-f8dae43fe1fa",
+      "identityAttribute": "mail",
+      "identifier": "userName",
+      "_type": {
+        "_id": "IdentifyExistingUserNode",
+        "name": "Identify Existing User",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "6cbcb3d6-0b40-4b85-8116-6556648174ba": {
+      "_id": "6cbcb3d6-0b40-4b85-8116-6556648174ba",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "8b517a85-2505-4442-9796-7ec76640b6b5": {
+      "_id": "8b517a85-2505-4442-9796-7ec76640b6b5",
+      "clientType": "BROWSER",
+      "script": "58c824ae-84ed-4724-82cd-db128fc3f6c",
+      "usernameAttribute": "userName",
+      "_type": {
+        "_id": "SocialProviderHandlerNode",
+        "name": "Social Provider Handler Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "ACCOUNT_EXISTS",
+          "displayName": "Account exists"
+        },
+        {
+          "id": "NO_ACCOUNT",
+          "displayName": "No account exists"
+        }
+      ]
+    },
+    "d075402a-f26a-4994-8bcf-3f7e0e06e26a": {
+      "_id": "d075402a-f26a-4994-8bcf-3f7e0e06e26a",
+      "nodes": [
+        {
+          "_id": "1c03b46b-d6e2-407c-8f9f-7275be664545",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "33b2571b-7aa3-4272-bcc9-32e52d92b407",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        },
+        {
+          "_id": "e4c32bd2-1bf8-4f17-80bb-59d64efcbb5e",
+          "nodeType": "SelectIdPNode",
+          "displayName": "Select Identity Provider"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "socialAuthentication",
+          "displayName": "Social Authentication"
+        },
+        {
+          "id": "localAuthentication",
+          "displayName": "Local Authentication"
+        }
+      ]
+    },
+    "d41952c7-a418-4200-b898-eba65077ea45": {
+      "_id": "d41952c7-a418-4200-b898-eba65077ea45",
+      "identityResource": "managed/user",
+      "patchAsObject": false,
+      "ignoredFields": [],
+      "identityAttribute": "userName",
+      "_type": {
+        "_id": "PatchObjectNode",
+        "name": "Patch Object",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "PATCHED",
+          "displayName": "Patched"
+        },
+        {
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    },
+    "fc5333ac-0122-4c48-97c3-626ad5b8e2aa": {
+      "_id": "fc5333ac-0122-4c48-97c3-626ad5b8e2aa",
+      "identityResource": "managed/user",
+      "_type": {
+        "_id": "CreateObjectNode",
+        "name": "Create Object",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "CREATED",
+          "displayName": "Created"
+        },
+        {
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "58c824ae-84ed-4724-82cd-db128fc3f6c": {
+      "_id": "58c824ae-84ed-4724-82cd-db128fc3f6c",
+      "name": "Normalized Profile to Managed User",
+      "description": "Converts a normalized social profile into a managed user",
+      "script": "LyoKICogQ29weXJpZ2h0IDIwMjAgRm9yZ2VSb2NrIEFTLiBBbGwgUmlnaHRzIFJlc2VydmVkCiAqCiAqIFVzZSBvZiB0aGlzIGNvZGUgcmVxdWlyZXMgYSBjb21tZXJjaWFsIHNvZnR3YXJlIGxpY2Vuc2Ugd2l0aCBGb3JnZVJvY2sgQVMuCiAqIG9yIHdpdGggb25lIG9mIGl0cyBhZmZpbGlhdGVzLiBBbGwgdXNlIHNoYWxsIGJlIGV4Y2x1c2l2ZWx5IHN1YmplY3QKICogdG8gc3VjaCBsaWNlbnNlIGJldHdlZW4gdGhlIGxpY2Vuc2VlIGFuZCBGb3JnZVJvY2sgQVMuCiAqLwoKaW1wb3J0IHN0YXRpYyBvcmcuZm9yZ2Vyb2NrLmpzb24uSnNvblZhbHVlLmZpZWxkCmltcG9ydCBzdGF0aWMgb3JnLmZvcmdlcm9jay5qc29uLkpzb25WYWx1ZS5qc29uCmltcG9ydCBzdGF0aWMgb3JnLmZvcmdlcm9jay5qc29uLkpzb25WYWx1ZS5vYmplY3QKCmltcG9ydCBvcmcuZm9yZ2Vyb2NrLmpzb24uSnNvblZhbHVlCgpKc29uVmFsdWUgbWFuYWdlZFVzZXIgPSBqc29uKG9iamVjdCgKICAgICAgICBmaWVsZCgiZ2l2ZW5OYW1lIiwgbm9ybWFsaXplZFByb2ZpbGUuZ2l2ZW5OYW1lKSwKICAgICAgICBmaWVsZCgic24iLCBub3JtYWxpemVkUHJvZmlsZS5mYW1pbHlOYW1lKSwKICAgICAgICBmaWVsZCgibWFpbCIsIG5vcm1hbGl6ZWRQcm9maWxlLmVtYWlsKSwKICAgICAgICBmaWVsZCgidXNlck5hbWUiLCBub3JtYWxpemVkUHJvZmlsZS51c2VybmFtZSkpKQoKaWYgKG5vcm1hbGl6ZWRQcm9maWxlLnBvc3RhbEFkZHJlc3MuaXNOb3ROdWxsKCkpIG1hbmFnZWRVc2VyLnB1dCgicG9zdGFsQWRkcmVzcyIsIG5vcm1hbGl6ZWRQcm9maWxlLnBvc3RhbEFkZHJlc3MpCmlmIChub3JtYWxpemVkUHJvZmlsZS5hZGRyZXNzTG9jYWxpdHkuaXNOb3ROdWxsKCkpIG1hbmFnZWRVc2VyLnB1dCgiY2l0eSIsIG5vcm1hbGl6ZWRQcm9maWxlLmFkZHJlc3NMb2NhbGl0eSkKaWYgKG5vcm1hbGl6ZWRQcm9maWxlLmFkZHJlc3NSZWdpb24uaXNOb3ROdWxsKCkpIG1hbmFnZWRVc2VyLnB1dCgic3RhdGVQcm92aW5jZSIsIG5vcm1hbGl6ZWRQcm9maWxlLmFkZHJlc3NSZWdpb24pCmlmIChub3JtYWxpemVkUHJvZmlsZS5wb3N0YWxDb2RlLmlzTm90TnVsbCgpKSBtYW5hZ2VkVXNlci5wdXQoInBvc3RhbENvZGUiLCBub3JtYWxpemVkUHJvZmlsZS5wb3N0YWxDb2RlKQppZiAobm9ybWFsaXplZFByb2ZpbGUuY291bnRyeS5pc05vdE51bGwoKSkgbWFuYWdlZFVzZXIucHV0KCJjb3VudHJ5Iiwgbm9ybWFsaXplZFByb2ZpbGUuY291bnRyeSkKaWYgKG5vcm1hbGl6ZWRQcm9maWxlLnBob25lLmlzTm90TnVsbCgpKSBtYW5hZ2VkVXNlci5wdXQoInRlbGVwaG9uZU51bWJlciIsIG5vcm1hbGl6ZWRQcm9maWxlLnBob25lKQoKcmV0dXJuIG1hbmFnZWRVc2Vy",
+      "default": false,
+      "language": "GROOVY",
+      "context": "SOCIAL_IDP_PROFILE_TRANSFORMATION",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    }
+  },
+  "emailTemplates": {},
+  "tree": {
+    "_id": "SocialLogin",
+    "uiConfig": {},
+    "entryNodeId": "d075402a-f26a-4994-8bcf-3f7e0e06e26a",
+    "nodes": {
+      "199f4784-23f4-435a-b60c-f8dae43fe1fa": {
+        "connections": {
+          "false": "fc5333ac-0122-4c48-97c3-626ad5b8e2aa",
+          "true": "d41952c7-a418-4200-b898-eba65077ea45"
+        },
+        "displayName": "Identify Existing User",
+        "nodeType": "IdentifyExistingUserNode",
+        "x": 637,
+        "y": 113
+      },
+      "d41952c7-a418-4200-b898-eba65077ea45": {
+        "connections": {
+          "FAILURE": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "PATCHED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Patch Object",
+        "nodeType": "PatchObjectNode",
+        "x": 845,
+        "y": 200
+      },
+      "8b517a85-2505-4442-9796-7ec76640b6b5": {
+        "connections": {
+          "ACCOUNT_EXISTS": "199f4784-23f4-435a-b60c-f8dae43fe1fa",
+          "NO_ACCOUNT": "199f4784-23f4-435a-b60c-f8dae43fe1fa"
+        },
+        "displayName": "Social Provider Handler Node",
+        "nodeType": "SocialProviderHandlerNode",
+        "x": 383,
+        "y": 74
+      },
+      "fc5333ac-0122-4c48-97c3-626ad5b8e2aa": {
+        "connections": {
+          "CREATED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Create Object",
+        "nodeType": "CreateObjectNode",
+        "x": 836,
+        "y": 75
+      },
+      "6cbcb3d6-0b40-4b85-8116-6556648174ba": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 391,
+        "y": 300.375
+      },
+      "d075402a-f26a-4994-8bcf-3f7e0e06e26a": {
+        "connections": {
+          "localAuthentication": "6cbcb3d6-0b40-4b85-8116-6556648174ba",
+          "socialAuthentication": "8b517a85-2505-4442-9796-7ec76640b6b5"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 159,
+        "y": 71
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1095,
+        "y": 162
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1118,
+        "y": 60
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

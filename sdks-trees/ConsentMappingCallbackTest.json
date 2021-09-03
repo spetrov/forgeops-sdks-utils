@@ -1,0 +1,152 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "37cf0385-713a-400d-a0bc-05ca2617ca02": {
+      "_id": "37cf0385-713a-400d-a0bc-05ca2617ca02",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "e4bafeab-8bcf-4150-b5ba-c3290b3419bf": {
+      "_id": "e4bafeab-8bcf-4150-b5ba-c3290b3419bf",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "1f6f1915-e46b-4ae0-bdf7-cff713af9299": {
+      "_id": "1f6f1915-e46b-4ae0-bdf7-cff713af9299",
+      "allRequired": true,
+      "message": {
+        "en": "Test"
+      },
+      "_type": {
+        "_id": "ConsentNode",
+        "name": "Consent Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "311d7ebb-5a0b-478f-bd67-d1300973b0b9": {
+      "_id": "311d7ebb-5a0b-478f-bd67-d1300973b0b9",
+      "nodes": [
+        {
+          "_id": "37cf0385-713a-400d-a0bc-05ca2617ca02",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "e4bafeab-8bcf-4150-b5ba-c3290b3419bf",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "79e5b9b9-c671-4034-904e-5c71164f7814": {
+      "_id": "79e5b9b9-c671-4034-904e-5c71164f7814",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "ConsentMappingCallbackTest",
+    "identityResource": "managed/user",
+    "uiConfig": {},
+    "entryNodeId": "311d7ebb-5a0b-478f-bd67-d1300973b0b9",
+    "nodes": {
+      "1f6f1915-e46b-4ae0-bdf7-cff713af9299": {
+        "x": 557,
+        "y": 20,
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "nodeType": "ConsentNode",
+        "displayName": "Consent Collector"
+      },
+      "311d7ebb-5a0b-478f-bd67-d1300973b0b9": {
+        "x": 162,
+        "y": 21,
+        "connections": {
+          "outcome": "79e5b9b9-c671-4034-904e-5c71164f7814"
+        },
+        "nodeType": "PageNode",
+        "displayName": "Page Node"
+      },
+      "79e5b9b9-c671-4034-904e-5c71164f7814": {
+        "x": 360,
+        "y": 20,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "1f6f1915-e46b-4ae0-bdf7-cff713af9299"
+        },
+        "nodeType": "DataStoreDecisionNode",
+        "displayName": "Data Store Decision"
+      }
+    },
+    "staticNodes": {
+      "startNode": {
+        "x": 50,
+        "y": 25
+      },
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 757,
+        "y": 22
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 698,
+        "y": 99
+      }
+    }
+  }
+}

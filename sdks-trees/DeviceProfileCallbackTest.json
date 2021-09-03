@@ -1,0 +1,153 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "87b40ee9-cf08-40d9-9650-d37a6e229a7a": {
+      "_id": "87b40ee9-cf08-40d9-9650-d37a6e229a7a",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "12057f20-4131-4671-99f6-903441d527cf": {
+      "_id": "12057f20-4131-4671-99f6-903441d527cf",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "67173bff-65eb-450d-adc1-88e741909e55": {
+      "_id": "67173bff-65eb-450d-adc1-88e741909e55",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "6fdada98-892b-4cf6-a123-0663e6aecfc4": {
+      "_id": "6fdada98-892b-4cf6-a123-0663e6aecfc4",
+      "deviceLocation": true,
+      "maximumSize": "3",
+      "deviceMetadata": true,
+      "message": {
+        "en": "Collecting profile ..."
+      },
+      "_type": {
+        "_id": "DeviceProfileCollectorNode",
+        "name": "Device Profile Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "d1acb628-4756-492c-bf63-dac23eb98f8f": {
+      "_id": "d1acb628-4756-492c-bf63-dac23eb98f8f",
+      "nodes": [
+        {
+          "_id": "87b40ee9-cf08-40d9-9650-d37a6e229a7a",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "12057f20-4131-4671-99f6-903441d527cf",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "DeviceProfileCallbackTest",
+    "uiConfig": {},
+    "entryNodeId": "d1acb628-4756-492c-bf63-dac23eb98f8f",
+    "nodes": {
+      "d1acb628-4756-492c-bf63-dac23eb98f8f": {
+        "connections": {
+          "outcome": "67173bff-65eb-450d-adc1-88e741909e55"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 156,
+        "y": 23
+      },
+      "6fdada98-892b-4cf6-a123-0663e6aecfc4": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Device Profile Collector",
+        "nodeType": "DeviceProfileCollectorNode",
+        "x": 548,
+        "y": 49
+      },
+      "67173bff-65eb-450d-adc1-88e741909e55": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "6fdada98-892b-4cf6-a123-0663e6aecfc4"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 357,
+        "y": 25
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 767,
+        "y": 20
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 777,
+        "y": 130
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

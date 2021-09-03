@@ -1,0 +1,161 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "c82d32fb-64d8-4023-aa5e-2422ab56c784": {
+      "_id": "c82d32fb-64d8-4023-aa5e-2422ab56c784",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "da015c6c-c65d-4cca-aebd-42cd0c37a00a": {
+      "_id": "da015c6c-c65d-4cca-aebd-42cd0c37a00a",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "783df4a3-a7f6-41d9-a843-7fea8783f288": {
+      "_id": "783df4a3-a7f6-41d9-a843-7fea8783f288",
+      "nodes": [
+        {
+          "_id": "c82d32fb-64d8-4023-aa5e-2422ab56c784",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "da015c6c-c65d-4cca-aebd-42cd0c37a00a",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "dddc2fa5-25a7-4b14-b89f-94a26f2e1243": {
+      "_id": "dddc2fa5-25a7-4b14-b89f-94a26f2e1243",
+      "messageYes": {
+        "en": "Yes"
+      },
+      "message": {
+        "en": "Test"
+      },
+      "messageNo": {
+        "en": "No"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "f1395a4d-a834-449d-9b1b-6b3633c93389": {
+      "_id": "f1395a4d-a834-449d-9b1b-6b3633c93389",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "ConfirmationCallbackTest",
+    "uiConfig": {},
+    "entryNodeId": "783df4a3-a7f6-41d9-a843-7fea8783f288",
+    "nodes": {
+      "783df4a3-a7f6-41d9-a843-7fea8783f288": {
+        "connections": {
+          "outcome": "f1395a4d-a834-449d-9b1b-6b3633c93389"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 140,
+        "y": 34
+      },
+      "f1395a4d-a834-449d-9b1b-6b3633c93389": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "dddc2fa5-25a7-4b14-b89f-94a26f2e1243"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 341,
+        "y": 90
+      },
+      "dddc2fa5-25a7-4b14-b89f-94a26f2e1243": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Message Node",
+        "nodeType": "MessageNode",
+        "x": 533,
+        "y": 39
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 721,
+        "y": 44
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 755,
+        "y": 132
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

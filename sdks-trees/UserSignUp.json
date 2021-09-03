@@ -1,0 +1,209 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "44aae3d8-3fe9-497b-bf52-a40662af9d97": {
+      "_id": "44aae3d8-3fe9-497b-bf52-a40662af9d97",
+      "usernameAttribute": "userName",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedUsernameNode",
+        "name": "Platform Username",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "f2f6c194-c6d7-4fb5-8426-33c1b7d13118": {
+      "_id": "f2f6c194-c6d7-4fb5-8426-33c1b7d13118",
+      "passwordAttribute": "password",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedPasswordNode",
+        "name": "Platform Password",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "11f1e72c-dab1-4aec-a31b-e3efb9828017": {
+      "_id": "11f1e72c-dab1-4aec-a31b-e3efb9828017",
+      "_type": {
+        "_id": "AcceptTermsAndConditionsNode",
+        "name": "Accept Terms and Conditions",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "80a6d195-d4c3-4370-a115-ef59a04da848": {
+      "_id": "80a6d195-d4c3-4370-a115-ef59a04da848",
+      "nodes": [
+        {
+          "_id": "44aae3d8-3fe9-497b-bf52-a40662af9d97",
+          "nodeType": "ValidatedUsernameNode",
+          "displayName": "Platform Username"
+        },
+        {
+          "_id": "f2f6c194-c6d7-4fb5-8426-33c1b7d13118",
+          "nodeType": "ValidatedPasswordNode",
+          "displayName": "Platform Password"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "a2e3c11e-04dc-4ef3-8284-6a891d37467b": {
+      "_id": "a2e3c11e-04dc-4ef3-8284-6a891d37467b",
+      "attributesToCollect": [
+        "sn",
+        "givenName",
+        "mail"
+      ],
+      "identityAttribute": "userName",
+      "validateInputs": false,
+      "required": false,
+      "_type": {
+        "_id": "AttributeCollectorNode",
+        "name": "Attribute Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "efeeccbc-2893-4a2b-a6b4-e0ed3991cccf": {
+      "_id": "efeeccbc-2893-4a2b-a6b4-e0ed3991cccf",
+      "message": {
+        "en": "Please, provide security questions/answers"
+      },
+      "_type": {
+        "_id": "KbaCreateNode",
+        "name": "KBA Definition",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "fe39c433-ae7b-4743-b883-db56950393cb": {
+      "_id": "fe39c433-ae7b-4743-b883-db56950393cb",
+      "identityResource": "managed/user",
+      "_type": {
+        "_id": "CreateObjectNode",
+        "name": "Create Object",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "CREATED",
+          "displayName": "Created"
+        },
+        {
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "UserSignUp",
+    "uiConfig": {},
+    "entryNodeId": "80a6d195-d4c3-4370-a115-ef59a04da848",
+    "nodes": {
+      "efeeccbc-2893-4a2b-a6b4-e0ed3991cccf": {
+        "connections": {
+          "outcome": "11f1e72c-dab1-4aec-a31b-e3efb9828017"
+        },
+        "displayName": "KBA Definition",
+        "nodeType": "KbaCreateNode",
+        "x": 457,
+        "y": 132
+      },
+      "11f1e72c-dab1-4aec-a31b-e3efb9828017": {
+        "connections": {
+          "outcome": "fe39c433-ae7b-4743-b883-db56950393cb"
+        },
+        "displayName": "Accept Terms and Conditions",
+        "nodeType": "AcceptTermsAndConditionsNode",
+        "x": 507,
+        "y": 198
+      },
+      "a2e3c11e-04dc-4ef3-8284-6a891d37467b": {
+        "connections": {
+          "outcome": "efeeccbc-2893-4a2b-a6b4-e0ed3991cccf"
+        },
+        "displayName": "Attribute Collector",
+        "nodeType": "AttributeCollectorNode",
+        "x": 333,
+        "y": 66
+      },
+      "fe39c433-ae7b-4743-b883-db56950393cb": {
+        "connections": {
+          "CREATED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Create Object",
+        "nodeType": "CreateObjectNode",
+        "x": 708,
+        "y": 266
+      },
+      "80a6d195-d4c3-4370-a115-ef59a04da848": {
+        "connections": {
+          "outcome": "a2e3c11e-04dc-4ef3-8284-6a891d37467b"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 142,
+        "y": 32
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 872,
+        "y": 238
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 882,
+        "y": 345
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {},
+  "nodes": {
+    "566ceb27-ec85-4680-b733-f46ed28f1c54": {
+      "_id": "566ceb27-ec85-4680-b733-f46ed28f1c54",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "6bd78fdc-276e-447c-9c15-cb93866d190e": {
+      "_id": "6bd78fdc-276e-447c-9c15-cb93866d190e",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "8f8f8546-f45b-4f39-a39c-0e477b343204": {
+      "_id": "8f8f8546-f45b-4f39-a39c-0e477b343204",
+      "defaultChoice": "green",
+      "choices": [
+        "red",
+        "green",
+        "blue"
+      ],
+      "prompt": "Choose your color",
+      "_type": {
+        "_id": "ChoiceCollectorNode",
+        "name": "Choice Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "red",
+          "displayName": "red"
+        },
+        {
+          "id": "green",
+          "displayName": "green"
+        },
+        {
+          "id": "blue",
+          "displayName": "blue"
+        }
+      ]
+    },
+    "d68a8022-8da0-4bf8-8977-d62f25639dd6": {
+      "_id": "d68a8022-8da0-4bf8-8977-d62f25639dd6",
+      "spamDetectionTolerance": 3,
+      "spamDetectionEnabled": false,
+      "exitMessage": {},
+      "waitingMessage": {},
+      "secondsToWait": 1,
+      "exitable": false,
+      "_type": {
+        "_id": "PollingWaitNode",
+        "name": "Polling Wait Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "DONE",
+          "displayName": "Done"
+        }
+      ]
+    },
+    "f75adfa4-804b-42be-9a0b-444824830fd9": {
+      "_id": "f75adfa4-804b-42be-9a0b-444824830fd9",
+      "messageYes": {
+        "en": "Yes"
+      },
+      "message": {
+        "en": "Is it true?"
+      },
+      "messageNo": {
+        "en": "No"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "MiscCallbacks",
+    "uiConfig": {},
+    "entryNodeId": "6bd78fdc-276e-447c-9c15-cb93866d190e",
+    "nodes": {
+      "f75adfa4-804b-42be-9a0b-444824830fd9": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "d68a8022-8da0-4bf8-8977-d62f25639dd6"
+        },
+        "displayName": "Message Node",
+        "nodeType": "MessageNode",
+        "x": 494,
+        "y": 55
+      },
+      "6bd78fdc-276e-447c-9c15-cb93866d190e": {
+        "connections": {
+          "outcome": "566ceb27-ec85-4680-b733-f46ed28f1c54"
+        },
+        "displayName": "Username Collector",
+        "nodeType": "UsernameCollectorNode",
+        "x": 136,
+        "y": 20
+      },
+      "d68a8022-8da0-4bf8-8977-d62f25639dd6": {
+        "connections": {
+          "DONE": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Polling Wait Node",
+        "nodeType": "PollingWaitNode",
+        "x": 681,
+        "y": 56
+      },
+      "8f8f8546-f45b-4f39-a39c-0e477b343204": {
+        "connections": {
+          "blue": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "green": "f75adfa4-804b-42be-9a0b-444824830fd9",
+          "red": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Choice Collector",
+        "nodeType": "ChoiceCollectorNode",
+        "x": 308,
+        "y": 194
+      },
+      "566ceb27-ec85-4680-b733-f46ed28f1c54": {
+        "connections": {
+          "outcome": "8f8f8546-f45b-4f39-a39c-0e477b343204"
+        },
+        "displayName": "Password Collector",
+        "nodeType": "PasswordCollectorNode",
+        "x": 257,
+        "y": 86
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 827,
+        "y": 237
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 601,
+        "y": 343
+      },
+      "startNode": {
+        "x": 41,
+        "y": 20
+      }
+    }
+  }
+}

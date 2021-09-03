@@ -1,0 +1,162 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "fee132e7-08b9-4e20-b6be-74594451c4c4": {
+      "_id": "fee132e7-08b9-4e20-b6be-74594451c4c4",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "e14e03d7-96f1-4c7e-ac2d-39435130f48c": {
+      "_id": "e14e03d7-96f1-4c7e-ac2d-39435130f48c",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "02ae7dfb-0b67-4380-9ad0-6ec8198eb0a2": {
+      "_id": "02ae7dfb-0b67-4380-9ad0-6ec8198eb0a2",
+      "spamDetectionTolerance": 3,
+      "spamDetectionEnabled": false,
+      "exitMessage": {
+        "en": "Exit"
+      },
+      "waitingMessage": {
+        "en": "Please Wait"
+      },
+      "secondsToWait": 10,
+      "exitable": true,
+      "_type": {
+        "_id": "PollingWaitNode",
+        "name": "Polling Wait Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "DONE",
+          "displayName": "Done"
+        },
+        {
+          "id": "EXITED",
+          "displayName": "Exited"
+        }
+      ]
+    },
+    "6f1b6c2c-687e-4cbc-92a2-0b5432a52245": {
+      "_id": "6f1b6c2c-687e-4cbc-92a2-0b5432a52245",
+      "nodes": [
+        {
+          "_id": "fee132e7-08b9-4e20-b6be-74594451c4c4",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "e14e03d7-96f1-4c7e-ac2d-39435130f48c",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "f04180c9-7d6c-4cd3-88bc-bdf9ed45b385": {
+      "_id": "f04180c9-7d6c-4cd3-88bc-bdf9ed45b385",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "PollingWaitCallbackTest",
+    "uiConfig": {},
+    "entryNodeId": "6f1b6c2c-687e-4cbc-92a2-0b5432a52245",
+    "nodes": {
+      "6f1b6c2c-687e-4cbc-92a2-0b5432a52245": {
+        "connections": {
+          "outcome": "f04180c9-7d6c-4cd3-88bc-bdf9ed45b385"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 143,
+        "y": 30
+      },
+      "f04180c9-7d6c-4cd3-88bc-bdf9ed45b385": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "02ae7dfb-0b67-4380-9ad0-6ec8198eb0a2"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 337,
+        "y": 26.375
+      },
+      "02ae7dfb-0b67-4380-9ad0-6ec8198eb0a2": {
+        "connections": {
+          "DONE": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "EXITED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Polling Wait Node",
+        "nodeType": "PollingWaitNode",
+        "x": 513,
+        "y": 26
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 709,
+        "y": 125
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 533,
+        "y": 243
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}
