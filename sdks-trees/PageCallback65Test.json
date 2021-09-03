@@ -1,0 +1,167 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "34e4a7fa-501f-4aca-8938-9b24dd7f3400": {
+      "_id": "34e4a7fa-501f-4aca-8938-9b24dd7f3400",
+      "script": "05a7aa16-2f77-4f76-9bec-f4ed4054722b",
+      "outcomes": [
+        "true"
+      ],
+      "outputs": [
+        "*"
+      ],
+      "inputs": [
+        "*"
+      ],
+      "_type": {
+        "_id": "ScriptedDecisionNode",
+        "name": "Scripted Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "true"
+        }
+      ]
+    },
+    "fb76e7c6-f806-4845-98ae-ae00b6909ecd": {
+      "_id": "fb76e7c6-f806-4845-98ae-ae00b6909ecd",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "215805a0-9afd-4d8f-aff7-a8486cb0c133": {
+      "_id": "215805a0-9afd-4d8f-aff7-a8486cb0c133",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "33a15a59-7b21-4639-8dc4-01a040f546fa": {
+      "_id": "33a15a59-7b21-4639-8dc4-01a040f546fa",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "3b4bbbf8-3885-4e52-ba35-e8ee5d4a1e39": {
+      "_id": "3b4bbbf8-3885-4e52-ba35-e8ee5d4a1e39",
+      "nodes": [
+        {
+          "_id": "34e4a7fa-501f-4aca-8938-9b24dd7f3400",
+          "nodeType": "ScriptedDecisionNode",
+          "displayName": "Scripted Decision"
+        },
+        {
+          "_id": "fb76e7c6-f806-4845-98ae-ae00b6909ecd",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "215805a0-9afd-4d8f-aff7-a8486cb0c133",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "05a7aa16-2f77-4f76-9bec-f4ed4054722b": {
+      "_id": "05a7aa16-2f77-4f76-9bec-f4ed4054722b",
+      "name": "MetadataCallback: UsernamePassword",
+      "description": "null",
+      "script": "dmFyIGZyID0gSmF2YUltcG9ydGVyKAogIG9yZy5mb3JnZXJvY2suanNvbi5Kc29uVmFsdWUsCiAgb3JnLmZvcmdlcm9jay5vcGVuYW0uYXV0aC5ub2RlLmFwaS5BY3Rpb24sCiAgY29tLnN1bi5pZGVudGl0eS5hdXRoZW50aWNhdGlvbi5zcGkuTWV0YWRhdGFDYWxsYmFjawopOwp3aXRoIChmcikgewogIHZhciBqc29uID0gSnNvblZhbHVlLmpzb24oeyBzdGFnZTogIlVzZXJuYW1lUGFzc3dvcmQiIH0pOwogIGFjdGlvbiA9IEFjdGlvbi5zZW5kKG5ldyBNZXRhZGF0YUNhbGxiYWNrKGpzb24pKS5idWlsZCgpOwp9Cm91dGNvbWUgPSAidHJ1ZSI7",
+      "default": false,
+      "language": "JAVASCRIPT",
+      "context": "AUTHENTICATION_TREE_DECISION_NODE",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    }
+  },
+  "emailTemplates": {},
+  "tree": {
+    "_id": "PageCallback65Test",
+    "uiConfig": {},
+    "entryNodeId": "3b4bbbf8-3885-4e52-ba35-e8ee5d4a1e39",
+    "nodes": {
+      "33a15a59-7b21-4639-8dc4-01a040f546fa": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 340,
+        "y": 68
+      },
+      "3b4bbbf8-3885-4e52-ba35-e8ee5d4a1e39": {
+        "connections": {
+          "outcome": "33a15a59-7b21-4639-8dc4-01a040f546fa"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 147,
+        "y": 63
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 538,
+        "y": 23
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 516,
+        "y": 214
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "021a25ce-acf6-4ad9-8b97-0555a1bd1c3a": {
+      "_id": "021a25ce-acf6-4ad9-8b97-0555a1bd1c3a",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "06e27f48-585e-4cc5-95a6-f493c94786cf": {
+      "_id": "06e27f48-585e-4cc5-95a6-f493c94786cf",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "68793d1c-35a9-420b-985a-c5829c9eda03": {
+      "_id": "68793d1c-35a9-420b-985a-c5829c9eda03",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "e3982832-06ce-4b92-9838-dd7e68e8223e": {
+      "_id": "e3982832-06ce-4b92-9838-dd7e68e8223e",
+      "_type": {
+        "_id": "AcceptTermsAndConditionsNode",
+        "name": "Accept Terms and Conditions",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "e574b87e-d4aa-4c0e-a562-81aca230aa9a": {
+      "_id": "e574b87e-d4aa-4c0e-a562-81aca230aa9a",
+      "nodes": [
+        {
+          "_id": "021a25ce-acf6-4ad9-8b97-0555a1bd1c3a",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "06e27f48-585e-4cc5-95a6-f493c94786cf",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "TermsAndConditionCallbackTest",
+    "uiConfig": {},
+    "entryNodeId": "e574b87e-d4aa-4c0e-a562-81aca230aa9a",
+    "nodes": {
+      "e3982832-06ce-4b92-9838-dd7e68e8223e": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Accept Terms and Conditions",
+        "nodeType": "AcceptTermsAndConditionsNode",
+        "x": 530,
+        "y": 50
+      },
+      "e574b87e-d4aa-4c0e-a562-81aca230aa9a": {
+        "connections": {
+          "outcome": "68793d1c-35a9-420b-985a-c5829c9eda03"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 144,
+        "y": 28
+      },
+      "68793d1c-35a9-420b-985a-c5829c9eda03": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e3982832-06ce-4b92-9838-dd7e68e8223e"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 343,
+        "y": 40
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 670,
+        "y": 166
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 413,
+        "y": 163
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}
