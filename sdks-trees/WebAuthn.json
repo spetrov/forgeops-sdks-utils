@@ -1,0 +1,480 @@
+
+{
+  "origin": "15a0ab9edea1f9824675491a1700db11",
+  "innernodes": {
+    "f98bb2ac-3ab9-4fb1-a538-82082b28644b": {
+      "_id": "f98bb2ac-3ab9-4fb1-a538-82082b28644b",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "4e7febaf-b39d-457e-b1cf-f4212f7e4eab": {
+      "_id": "4e7febaf-b39d-457e-b1cf-f4212f7e4eab",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "279ec2ec-6476-4749-9fea-7b68a95868ff": {
+      "_id": "279ec2ec-6476-4749-9fea-7b68a95868ff",
+      "messageNo": {
+        "en": "No"
+      },
+      "message": {
+        "en": "Enable Biometrics"
+      },
+      "messageYes": {
+        "en": "Yes"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "32285204-30fd-444d-ba53-f3e63f842c83": {
+      "_id": "32285204-30fd-444d-ba53-f3e63f842c83",
+      "messageNo": {
+        "en": "No"
+      },
+      "messageYes": {
+        "en": "Yes"
+      },
+      "message": {
+        "en": "Login?"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "46477f83-970a-4653-ae7e-40f038461373": {
+      "_id": "46477f83-970a-4653-ae7e-40f038461373",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "616637e7-1481-4dfa-bc08-42c928a91fac": {
+      "_id": "616637e7-1481-4dfa-bc08-42c928a91fac",
+      "outcomes": [
+        "NotAllowedError",
+        "SecurityError",
+        "AbortError",
+        "UnknownError"
+      ],
+      "outputs": [
+        "*"
+      ],
+      "inputs": [
+        "*"
+      ],
+      "script": "01a040f7-1458-4a56-807a-71c4cde29b8f",
+      "_type": {
+        "_id": "ScriptedDecisionNode",
+        "name": "Scripted Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "NotAllowedError",
+          "displayName": "NotAllowedError"
+        },
+        {
+          "id": "SecurityError",
+          "displayName": "SecurityError"
+        },
+        {
+          "id": "AbortError",
+          "displayName": "AbortError"
+        },
+        {
+          "id": "UnknownError",
+          "displayName": "UnknownError"
+        }
+      ]
+    },
+    "6444b72e-f84e-4327-9583-2f4af92f2a46": {
+      "_id": "6444b72e-f84e-4327-9583-2f4af92f2a46",
+      "origins": [],
+      "timeout": 60,
+      "isRecoveryCodeAllowed": false,
+      "asScript": true,
+      "requiresResidentKey": true,
+      "userVerificationRequirement": "PREFERRED",
+      "_type": {
+        "_id": "WebAuthnAuthenticationNode",
+        "name": "WebAuthn Authentication Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "noDevice",
+          "displayName": "No Device Registered"
+        },
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "error",
+          "displayName": "Client Error"
+        }
+      ]
+    },
+    "7bb36b3b-2dd5-4c2f-b28c-7b251b1e6b11": {
+      "_id": "7bb36b3b-2dd5-4c2f-b28c-7b251b1e6b11",
+      "messageNo": {
+        "en": "Retry"
+      },
+      "message": {
+        "en": "Client Error"
+      },
+      "messageYes": {
+        "en": "OK"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "8f1c6001-2edc-4eff-b1a0-e816aee8d72e": {
+      "_id": "8f1c6001-2edc-4eff-b1a0-e816aee8d72e",
+      "messageNo": {
+        "en": "Retry"
+      },
+      "message": {
+        "en": "Filure"
+      },
+      "messageYes": {
+        "en": "OK"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "972370ab-4d0a-4bbd-a9fd-752550196c36": {
+      "_id": "972370ab-4d0a-4bbd-a9fd-752550196c36",
+      "pageHeader": {},
+      "pageDescription": {},
+      "nodes": [
+        {
+          "_id": "f98bb2ac-3ab9-4fb1-a538-82082b28644b",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "4e7febaf-b39d-457e-b1cf-f4212f7e4eab",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49": {
+      "_id": "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49",
+      "asScript": true,
+      "relyingPartyName": "ForgeRock",
+      "generateRecoveryCodes": true,
+      "trustStoreAlias": "trustalias",
+      "attestationPreference": "NONE",
+      "authenticatorAttachment": "UNSPECIFIED",
+      "acceptedSigningAlgorithms": [
+        "ES256",
+        "RS256"
+      ],
+      "storeAttestationDataInTransientState": false,
+      "timeout": 60,
+      "excludeCredentials": false,
+      "userVerificationRequirement": "PREFERRED",
+      "origins": [],
+      "requiresResidentKey": true,
+      "postponeDeviceProfileStorage": false,
+      "enforceRevocationCheck": false,
+      "displayNameSharedState": "username",
+      "_type": {
+        "_id": "WebAuthnRegistrationNode",
+        "name": "WebAuthn Registration Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "error",
+          "displayName": "Client Error"
+        }
+      ]
+    },
+    "b8557a82-d1e7-4965-b992-30bbdc0335b3": {
+      "_id": "b8557a82-d1e7-4965-b992-30bbdc0335b3",
+      "message": {
+        "en": "Unsupported"
+      },
+      "messageNo": {
+        "en": "Retry"
+      },
+      "messageYes": {
+        "en": "OK"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "01a040f7-1458-4a56-807a-71c4cde29b8f": {
+      "_id": "01a040f7-1458-4a56-807a-71c4cde29b8f",
+      "name": "WebAuthnErrorHandler",
+      "description": null,
+      "script": "Ly9FcnJvciBmb3JtYXQgZXhhbXBsZTogRVJST1I6OkludmFsaWRTdGF0ZUVycm9yOk5vIENyZWRlbnRpYWwgaXMgcmVnaXN0ZXJlZAoKdmFyIGVycm9yID0gc2hhcmVkU3RhdGUuZ2V0KCJXZWJBdXRoZW50aWNhdGlvbkRPTUV4Y2VwdGlvbiIpOwpsb2dnZXIubWVzc2FnZShlcnJvcik7CgovLyBNYXRjaCB3b3JkIG9yIHBocmFzZSBiZXR3ZWVuICI6OiIgYW5kICI6Igp2YXIgcmVzdWx0ID0gZXJyb3IubWF0Y2goLzo6KFtcd1xzXXsxLH0pOnswLH0vKTsKb3V0Y29tZSA9IHJlc3VsdCA/IHJlc3VsdFsxXSA6ICdVbmtub3duRXJyb3InOwoKbG9nZ2VyLm1lc3NhZ2UoIk91dGNvbWU6ICIgKyBvdXRjb21lICsgInwgRVJST1I6ICIgKyBlcnJvcik7",
+      "default": false,
+      "language": "JAVASCRIPT",
+      "context": "AUTHENTICATION_TREE_DECISION_NODE",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    }
+  },
+  "emailTemplates": {},
+  "tree": {
+    "_id": "WebAuthn",
+    "entryNodeId": "32285204-30fd-444d-ba53-f3e63f842c83",
+    "staticNodes": {
+      "startNode": {
+        "x": 31,
+        "y": 20
+      },
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1217,
+        "y": 63
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1224,
+        "y": 331
+      }
+    },
+    "uiConfig": {},
+    "nodes": {
+      "6444b72e-f84e-4327-9583-2f4af92f2a46": {
+        "displayName": "WebAuthn Authentication Node",
+        "nodeType": "WebAuthnAuthenticationNode",
+        "x": 257,
+        "y": 24,
+        "connections": {
+          "unsupported": "972370ab-4d0a-4bbd-a9fd-752550196c36",
+          "noDevice": "972370ab-4d0a-4bbd-a9fd-752550196c36",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "failure": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "error": "616637e7-1481-4dfa-bc08-42c928a91fac"
+        }
+      },
+      "972370ab-4d0a-4bbd-a9fd-752550196c36": {
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 540,
+        "y": 20,
+        "connections": {
+          "outcome": "46477f83-970a-4653-ae7e-40f038461373"
+        }
+      },
+      "46477f83-970a-4653-ae7e-40f038461373": {
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 748,
+        "y": 20,
+        "connections": {
+          "true": "279ec2ec-6476-4749-9fea-7b68a95868ff",
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a"
+        }
+      },
+      "279ec2ec-6476-4749-9fea-7b68a95868ff": {
+        "displayName": "Enable WebAuthn?",
+        "nodeType": "MessageNode",
+        "x": 803,
+        "y": 134,
+        "connections": {
+          "true": "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49",
+          "false": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        }
+      },
+      "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49": {
+        "displayName": "WebAuthn Registration Node",
+        "nodeType": "WebAuthnRegistrationNode",
+        "x": 849,
+        "y": 258,
+        "connections": {
+          "error": "7bb36b3b-2dd5-4c2f-b28c-7b251b1e6b11",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "failure": "8f1c6001-2edc-4eff-b1a0-e816aee8d72e",
+          "unsupported": "b8557a82-d1e7-4965-b992-30bbdc0335b3"
+        }
+      },
+      "7bb36b3b-2dd5-4c2f-b28c-7b251b1e6b11": {
+        "displayName": "Client Error",
+        "nodeType": "MessageNode",
+        "x": 949,
+        "y": 492,
+        "connections": {
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "false": "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49"
+        }
+      },
+      "8f1c6001-2edc-4eff-b1a0-e816aee8d72e": {
+        "displayName": "Failure",
+        "nodeType": "MessageNode",
+        "x": 1078,
+        "y": 490,
+        "connections": {
+          "false": "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        }
+      },
+      "b8557a82-d1e7-4965-b992-30bbdc0335b3": {
+        "displayName": "Unsupported",
+        "nodeType": "MessageNode",
+        "x": 809,
+        "y": 488,
+        "connections": {
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "false": "aaa804f6-2ab4-43cd-b2bc-2cc9d6f93c49"
+        }
+      },
+      "616637e7-1481-4dfa-bc08-42c928a91fac": {
+        "displayName": "Scripted Decision",
+        "nodeType": "ScriptedDecisionNode",
+        "x": 338,
+        "y": 188,
+        "connections": {
+          "NotAllowedError": "972370ab-4d0a-4bbd-a9fd-752550196c36",
+          "SecurityError": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "AbortError": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "UnknownError": "e301438c-0bd0-429c-ab0c-66126501069a"
+        }
+      },
+      "32285204-30fd-444d-ba53-f3e63f842c83": {
+        "displayName": "Force User Interaction",
+        "nodeType": "MessageNode",
+        "x": 62,
+        "y": 93,
+        "connections": {
+          "true": "6444b72e-f84e-4327-9583-2f4af92f2a46",
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a"
+        }
+      }
+    }
+  }
+}

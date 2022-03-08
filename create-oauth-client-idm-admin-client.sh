@@ -25,7 +25,7 @@ curl -X PUT \
         },
         "refreshTokenLifetime": {
             "inherited": false,
-            "value": 604800
+            "value": 0
         },
         "scopes": {
             "inherited": false,
@@ -39,7 +39,7 @@ curl -X PUT \
         },
         "accessTokenLifetime": {
             "inherited": false,
-            "value": 3600
+            "value": 0
         },
         "redirectionUris": {
             "inherited": false,
@@ -55,25 +55,8 @@ curl -X PUT \
         },
         "authorizationCodeLifetime": {
             "inherited": false,
-            "value": 120
+            "value": 0
         }
-    },
-    "overrideOAuth2ClientConfig": {
-        "issueRefreshToken": true,
-        "remoteConsentServiceId": null,
-        "tokenEncryptionEnabled": false,
-        "enableRemoteConsent": false,
-        "usePolicyEngineForScope": false,
-        "oidcMayActScript": "[Empty]",
-        "oidcClaimsScript": "36863ffb-40ec-48b9-94b1-9a99f71cc3b5",
-        "overrideableOIDCClaims": [],
-        "accessTokenMayActScript": "[Empty]",
-        "clientsCanSkipConsent": false,
-        "accessTokenModificationScript": "d22f9a0c-426a-4466-b95e-d0f125b0d5fa",
-        "providerOverridesEnabled": false,
-        "issueRefreshTokenOnRefreshedToken": true,
-        "scopeImplementationClass": "org.forgerock.openam.oauth2.OpenAMScopeValidator",
-        "statelessTokensEnabled": false
     },
     "advancedOAuth2ClientConfig": {
         "descriptions": {
@@ -111,7 +94,15 @@ curl -X PUT \
         "responseTypes": {
             "inherited": false,
             "value": [
-                "token"
+                "code",
+                "token",
+                "id_token",
+                "code token",
+                "token id_token",
+                "code id_token",
+                "code token id_token",
+                "device_code",
+                "device_code id_token"
             ]
         },
         "updateAccessToken": {
@@ -274,7 +265,7 @@ curl -X PUT \
         },
         "jwtTokenLifetime": {
             "inherited": false,
-            "value": 3600
+            "value": 0
         },
         "defaultMaxAgeEnabled": {
             "inherited": false,
