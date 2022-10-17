@@ -63,6 +63,7 @@
       "message": {
         "en": "Select a security question"
       },
+      "allowUserDefinedQuestions": true,
       "_type": {
         "_id": "KbaCreateNode",
         "name": "KBA Definition",
@@ -226,6 +227,7 @@
         "x": 50,
         "y": 25
       }
-    }
+    },
+    "enabled": true
   }
 }

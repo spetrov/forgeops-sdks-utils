@@ -1,0 +1,236 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "830d1772-68ca-4113-8ca3-f38eaffd5ff7": {
+      "_id": "830d1772-68ca-4113-8ca3-f38eaffd5ff7",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "a140b581-bbe1-49c8-8206-20c7190bd01e": {
+      "_id": "a140b581-bbe1-49c8-8206-20c7190bd01e",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "3209cf9d-9352-4610-90d8-fac9eee798ad": {
+      "_id": "3209cf9d-9352-4610-90d8-fac9eee798ad",
+      "trustStoreAlias": "trustalias",
+      "relyingPartyName": "ForgeRock",
+      "maxSavedDevices": 0,
+      "generateRecoveryCodes": false,
+      "relyingPartyDomain": "com.forgerock.ios",
+      "storeAttestationDataInTransientState": false,
+      "origins": [
+        "ios:bundle-id:com.forgerock.ios.sdk.example",
+        "https://com.forgerock.ios.sdk.example"
+      ],
+      "userVerificationRequirement": "PREFERRED",
+      "postponeDeviceProfileStorage": false,
+      "excludeCredentials": false,
+      "requiresResidentKey": true,
+      "authenticatorAttachment": "UNSPECIFIED",
+      "asScript": false,
+      "acceptedSigningAlgorithms": [
+        "ES256",
+        "RS256"
+      ],
+      "attestationPreference": "NONE",
+      "enforceRevocationCheck": false,
+      "timeout": 60,
+      "_type": {
+        "_id": "WebAuthnRegistrationNode",
+        "name": "WebAuthn Registration Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "error",
+          "displayName": "Client Error"
+        }
+      ]
+    },
+    "3b7e8e56-327e-4a8e-93df-40b5c6e2de96": {
+      "_id": "3b7e8e56-327e-4a8e-93df-40b5c6e2de96",
+      "nodes": [
+        {
+          "_id": "830d1772-68ca-4113-8ca3-f38eaffd5ff7",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "a140b581-bbe1-49c8-8206-20c7190bd01e",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "8282aaea-e9a6-4ee1-bf94-f56ba1deb216": {
+      "_id": "8282aaea-e9a6-4ee1-bf94-f56ba1deb216",
+      "script": "39f59c80-2dee-4291-b11b-9a5f96502ace",
+      "outcomes": [
+        "continue"
+      ],
+      "outputs": [
+        "*"
+      ],
+      "inputs": [
+        "*"
+      ],
+      "_type": {
+        "_id": "ScriptedDecisionNode",
+        "name": "Scripted Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "continue",
+          "displayName": "continue"
+        }
+      ]
+    },
+    "8981a1ab-0efb-43b0-ba5d-54049b2a33db": {
+      "_id": "8981a1ab-0efb-43b0-ba5d-54049b2a33db",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "39f59c80-2dee-4291-b11b-9a5f96502ace": {
+      "_id": "39f59c80-2dee-4291-b11b-9a5f96502ace",
+      "name": "displayName",
+      "description": null,
+      "script": "c2hhcmVkU3RhdGUucHV0KCJkaXNwbGF5TmFtZSIsICJQZXRhciBVenVub3YiKTsKb3V0Y29tZSA9ICJjb250aW51ZSI7",
+      "default": false,
+      "language": "GROOVY",
+      "context": "AUTHENTICATION_TREE_DECISION_NODE",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    }
+  },
+  "emailTemplates": {},
+  "tree": {
+    "_id": "WebAuthnRegistration",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "3b7e8e56-327e-4a8e-93df-40b5c6e2de96",
+    "nodes": {
+      "3209cf9d-9352-4610-90d8-fac9eee798ad": {
+        "connections": {
+          "error": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "failure": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "unsupported": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "WebAuthn Registration Node",
+        "nodeType": "WebAuthnRegistrationNode",
+        "x": 427.203125,
+        "y": 298.015625
+      },
+      "3b7e8e56-327e-4a8e-93df-40b5c6e2de96": {
+        "connections": {
+          "outcome": "8981a1ab-0efb-43b0-ba5d-54049b2a33db"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 210,
+        "y": 61.015625
+      },
+      "8282aaea-e9a6-4ee1-bf94-f56ba1deb216": {
+        "connections": {
+          "continue": "3209cf9d-9352-4610-90d8-fac9eee798ad"
+        },
+        "displayName": "Scripted Decision",
+        "nodeType": "ScriptedDecisionNode",
+        "x": 153,
+        "y": 444.015625
+      },
+      "8981a1ab-0efb-43b0-ba5d-54049b2a33db": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "3209cf9d-9352-4610-90d8-fac9eee798ad"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 513,
+        "y": 78.015625
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 779,
+        "y": 142
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 782,
+        "y": 362
+      },
+      "startNode": {
+        "x": 50,
+        "y": 250
+      }
+    },
+    "enabled": true
+  }
+}

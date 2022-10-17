@@ -2,8 +2,8 @@
 {
   "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
   "innernodes": {
-    "57a09c9e-2cb3-4e6b-8fdf-146991d25a6b": {
-      "_id": "57a09c9e-2cb3-4e6b-8fdf-146991d25a6b",
+    "10c559be-4c56-4e99-980d-c00e1115da2c": {
+      "_id": "10c559be-4c56-4e99-980d-c00e1115da2c",
       "_type": {
         "_id": "UsernameCollectorNode",
         "name": "Username Collector",
@@ -32,16 +32,40 @@
     }
   },
   "nodes": {
+    "2d235da6-8ce9-4491-8b17-f9e1878f491d": {
+      "_id": "2d235da6-8ce9-4491-8b17-f9e1878f491d",
+      "script": "39f59c80-2dee-4291-b11b-9a5f96502ace",
+      "outcomes": [
+        "continue"
+      ],
+      "outputs": [
+        "*"
+      ],
+      "inputs": [
+        "*"
+      ],
+      "_type": {
+        "_id": "ScriptedDecisionNode",
+        "name": "Scripted Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "continue",
+          "displayName": "continue"
+        }
+      ]
+    },
     "376b8bd7-afc3-431b-a650-29dcf1a4ca69": {
       "_id": "376b8bd7-afc3-431b-a650-29dcf1a4ca69",
       "requiresResidentKey": true,
       "asScript": false,
-      "relyingPartyDomain": "default.forgeops.petrov.ca",
+      "relyingPartyDomain": "petrov.ca",
       "origins": [
-        "ios:bundle-id:com.forgerock.ios.sdk.social",
+        "ios:bundle-id:com.forgerock.ios.sdk.example",
         "android:apk-key-hash:R8xO7rlQWaWL4BlFygptWRb5qcKWdfjzZIaSRit9XVw"
       ],
-      "userVerificationRequirement": "PREFERRED",
+      "userVerificationRequirement": "REQUIRED",
       "isRecoveryCodeAllowed": false,
       "timeout": 60,
       "_type": {
@@ -126,30 +150,6 @@
         {
           "id": "UnknownError",
           "displayName": "UnknownError"
-        }
-      ]
-    },
-    "a34e4c55-f1e2-4c44-a599-4f1b4d196345": {
-      "_id": "a34e4c55-f1e2-4c44-a599-4f1b4d196345",
-      "script": "39f59c80-2dee-4291-b11b-9a5f96502ace",
-      "outcomes": [
-        "continue"
-      ],
-      "outputs": [
-        "*"
-      ],
-      "inputs": [
-        "*"
-      ],
-      "_type": {
-        "_id": "ScriptedDecisionNode",
-        "name": "Scripted Decision",
-        "collection": true
-      },
-      "_outcomes": [
-        {
-          "id": "continue",
-          "displayName": "continue"
         }
       ]
     },
@@ -265,16 +265,17 @@
       "_id": "c89307f0-708c-4ea6-9919-b585b94350db",
       "trustStoreAlias": "trustalias",
       "relyingPartyName": "ForgeRock",
-      "generateRecoveryCodes": true,
-      "relyingPartyDomain": "default.forgeops.petrov.ca",
+      "maxSavedDevices": 0,
+      "generateRecoveryCodes": false,
+      "relyingPartyDomain": "petrov.ca",
       "storeAttestationDataInTransientState": false,
       "origins": [
-        "ios:bundle-id:com.forgerock.ios.sdk.social",
+        "ios:bundle-id:com.forgerock.ios.sdk.example",
         "android:apk-key-hash:R8xO7rlQWaWL4BlFygptWRb5qcKWdfjzZIaSRit9XVw"
       ],
       "userVerificationRequirement": "PREFERRED",
       "postponeDeviceProfileStorage": false,
-      "excludeCredentials": true,
+      "excludeCredentials": false,
       "requiresResidentKey": true,
       "authenticatorAttachment": "UNSPECIFIED",
       "asScript": false,
@@ -314,7 +315,7 @@
       "_id": "e5dfe11c-57dd-4210-a22d-1e4cc6770786",
       "nodes": [
         {
-          "_id": "57a09c9e-2cb3-4e6b-8fdf-146991d25a6b",
+          "_id": "10c559be-4c56-4e99-980d-c00e1115da2c",
           "nodeType": "UsernameCollectorNode",
           "displayName": "Username Collector"
         },
@@ -367,6 +368,19 @@
     }
   },
   "scripts": {
+    "39f59c80-2dee-4291-b11b-9a5f96502ace": {
+      "_id": "39f59c80-2dee-4291-b11b-9a5f96502ace",
+      "name": "displayName",
+      "description": null,
+      "script": "c2hhcmVkU3RhdGUucHV0KCJkaXNwbGF5TmFtZSIsICJQZXRhciBVenVub3YiKTsKb3V0Y29tZSA9ICJjb250aW51ZSI7",
+      "default": false,
+      "language": "GROOVY",
+      "context": "AUTHENTICATION_TREE_DECISION_NODE",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    },
     "01a040f7-1458-4a56-807a-71c4cde29b8f": {
       "_id": "01a040f7-1458-4a56-807a-71c4cde29b8f",
       "name": "WebAuthnErrorHandler",
@@ -374,19 +388,6 @@
       "script": "Ly9FcnJvciBmb3JtYXQgZXhhbXBsZTogRVJST1I6OkludmFsaWRTdGF0ZUVycm9yOk5vIENyZWRlbnRpYWwgaXMgcmVnaXN0ZXJlZAoKdmFyIGVycm9yID0gc2hhcmVkU3RhdGUuZ2V0KCJXZWJBdXRoZW50aWNhdGlvbkRPTUV4Y2VwdGlvbiIpOwpsb2dnZXIubWVzc2FnZShlcnJvcik7CgovLyBNYXRjaCB3b3JkIG9yIHBocmFzZSBiZXR3ZWVuICI6OiIgYW5kICI6Igp2YXIgcmVzdWx0ID0gZXJyb3IubWF0Y2goLzo6KFtcd1xzXXsxLH0pOnswLH0vKTsKb3V0Y29tZSA9IHJlc3VsdCA/IHJlc3VsdFsxXSA6ICdVbmtub3duRXJyb3InOwoKbG9nZ2VyLm1lc3NhZ2UoIk91dGNvbWU6ICIgKyBvdXRjb21lICsgInwgRVJST1I6ICIgKyBlcnJvcik7",
       "default": false,
       "language": "JAVASCRIPT",
-      "context": "AUTHENTICATION_TREE_DECISION_NODE",
-      "createdBy": "null",
-      "creationDate": 0,
-      "lastModifiedBy": "null",
-      "lastModifiedDate": 0
-    },
-    "39f59c80-2dee-4291-b11b-9a5f96502ace": {
-      "_id": "39f59c80-2dee-4291-b11b-9a5f96502ace",
-      "name": "displayName",
-      "description": null,
-      "script": "c2hhcmVkU3RhdGUucHV0KCJkaXNwbGF5TmFtZSIsICJHYW5jaG8gVG9kb3JvdiIpOwpvdXRjb21lID0gImNvbnRpbnVlIjs=",
-      "default": false,
-      "language": "GROOVY",
       "context": "AUTHENTICATION_TREE_DECISION_NODE",
       "createdBy": "null",
       "creationDate": 0,
@@ -403,6 +404,15 @@
     },
     "entryNodeId": "376b8bd7-afc3-431b-a650-29dcf1a4ca69",
     "nodes": {
+      "2d235da6-8ce9-4491-8b17-f9e1878f491d": {
+        "connections": {
+          "continue": "c89307f0-708c-4ea6-9919-b585b94350db"
+        },
+        "displayName": "Scripted Decision",
+        "nodeType": "ScriptedDecisionNode",
+        "x": 452,
+        "y": 616.3680419921875
+      },
       "376b8bd7-afc3-431b-a650-29dcf1a4ca69": {
         "connections": {
           "error": "5ed9b8c4-c2f3-4234-8e07-e512c12fafe5",
@@ -413,8 +423,8 @@
         },
         "displayName": "WebAuthn Authentication Node",
         "nodeType": "WebAuthnAuthenticationNode",
-        "x": 239,
-        "y": 30
+        "x": 121,
+        "y": 94
       },
       "5ecaaf4a-6128-4c07-9336-4b441ed41490": {
         "connections": {
@@ -438,15 +448,6 @@
         "x": 329,
         "y": 386
       },
-      "a34e4c55-f1e2-4c44-a599-4f1b4d196345": {
-        "connections": {
-          "continue": "c89307f0-708c-4ea6-9919-b585b94350db"
-        },
-        "displayName": "Scripted Decision",
-        "nodeType": "ScriptedDecisionNode",
-        "x": 606,
-        "y": 282.015625
-      },
       "a5da3669-ea92-4502-b260-a36b90703885": {
         "connections": {
           "false": "c89307f0-708c-4ea6-9919-b585b94350db",
@@ -464,8 +465,8 @@
         },
         "displayName": "Force User Interaction",
         "nodeType": "MessageNode",
-        "x": 35,
-        "y": 222
+        "x": 34,
+        "y": 397
       },
       "af53c6ff-1ef6-4982-9f65-7ac024355598": {
         "connections": {
@@ -496,8 +497,8 @@
         },
         "displayName": "WebAuthn Registration Node",
         "nodeType": "WebAuthnRegistrationNode",
-        "x": 856,
-        "y": 258
+        "x": 558,
+        "y": 318
       },
       "e5dfe11c-57dd-4210-a22d-1e4cc6770786": {
         "connections": {
@@ -505,8 +506,8 @@
         },
         "displayName": "Page Node",
         "nodeType": "PageNode",
-        "x": 580,
-        "y": 0
+        "x": 476,
+        "y": 32
       },
       "e6fc4116-149c-4bb9-a581-52932bcf027f": {
         "connections": {
@@ -525,13 +526,14 @@
         "y": 63
       },
       "e301438c-0bd0-429c-ab0c-66126501069a": {
-        "x": 1224,
-        "y": 331
+        "x": 1274,
+        "y": 376
       },
       "startNode": {
         "x": 31,
         "y": 20
       }
-    }
+    },
+    "enabled": true
   }
 }

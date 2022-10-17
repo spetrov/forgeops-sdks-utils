@@ -1,0 +1,19 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {},
+  "nodes": {},
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "WebAuthnImp",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "e301438c-0bd0-429c-ab0c-66126501069a",
+    "nodes": {},
+    "staticNodes": {},
+    "enabled": true
+  }
+}

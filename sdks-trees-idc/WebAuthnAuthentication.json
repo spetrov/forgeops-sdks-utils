@@ -1,0 +1,181 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "df0b3567-a538-4143-ba89-4b8c58a20dd9": {
+      "_id": "df0b3567-a538-4143-ba89-4b8c58a20dd9",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "9d4aceda-4b49-4060-b31f-81f760126317": {
+      "_id": "9d4aceda-4b49-4060-b31f-81f760126317",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "0163036b-040b-404a-8bdd-3ee98128814c": {
+      "_id": "0163036b-040b-404a-8bdd-3ee98128814c",
+      "requiresResidentKey": true,
+      "asScript": false,
+      "relyingPartyDomain": "com.forgerock.ios",
+      "origins": [
+        "https://com.forgerock.ios.sdk.example",
+        "os:bundle-id:com.forgerock.ios.sdk.example"
+      ],
+      "userVerificationRequirement": "PREFERRED",
+      "isRecoveryCodeAllowed": false,
+      "timeout": 60,
+      "_type": {
+        "_id": "WebAuthnAuthenticationNode",
+        "name": "WebAuthn Authentication Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "noDevice",
+          "displayName": "No Device Registered"
+        },
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "error",
+          "displayName": "Client Error"
+        }
+      ]
+    },
+    "1c61797b-ff6e-445b-aeae-c72afa9d9715": {
+      "_id": "1c61797b-ff6e-445b-aeae-c72afa9d9715",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "c9c7ad13-ea3b-45b3-8b2b-ce0886ef6438": {
+      "_id": "c9c7ad13-ea3b-45b3-8b2b-ce0886ef6438",
+      "nodes": [
+        {
+          "_id": "df0b3567-a538-4143-ba89-4b8c58a20dd9",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "9d4aceda-4b49-4060-b31f-81f760126317",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "WebAuthnAuthentication",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "c9c7ad13-ea3b-45b3-8b2b-ce0886ef6438",
+    "nodes": {
+      "0163036b-040b-404a-8bdd-3ee98128814c": {
+        "connections": {
+          "error": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "failure": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "noDevice": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "unsupported": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "WebAuthn Authentication Node",
+        "nodeType": "WebAuthnAuthenticationNode",
+        "x": 371.203125,
+        "y": 303.015625
+      },
+      "1c61797b-ff6e-445b-aeae-c72afa9d9715": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "0163036b-040b-404a-8bdd-3ee98128814c"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 513,
+        "y": 78.015625
+      },
+      "c9c7ad13-ea3b-45b3-8b2b-ce0886ef6438": {
+        "connections": {
+          "outcome": "1c61797b-ff6e-445b-aeae-c72afa9d9715"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 210,
+        "y": 61.015625
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 779,
+        "y": 142
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 782,
+        "y": 362
+      },
+      "startNode": {
+        "x": 50,
+        "y": 250
+      }
+    },
+    "enabled": true
+  }
+}

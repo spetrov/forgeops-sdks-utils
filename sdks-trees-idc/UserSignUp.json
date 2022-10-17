@@ -105,6 +105,7 @@
       "message": {
         "en": "Please, provide security questions/answers"
       },
+      "allowUserDefinedQuestions": true,
       "_type": {
         "_id": "KbaCreateNode",
         "name": "KBA Definition",
@@ -207,6 +208,7 @@
         "x": 50,
         "y": 25
       }
-    }
+    },
+    "enabled": true
   }
 }

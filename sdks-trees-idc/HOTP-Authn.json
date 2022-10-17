@@ -163,6 +163,7 @@
       "algorithm": "HOTP",
       "passwordLength": "SIX_DIGITS",
       "totpTimeInterval": 30,
+      "scanQRCodeMessage": {},
       "accountName": "EMAIL_ADDRESS",
       "issuer": "ForgeRock",
       "minSharedSecretLength": 32,
@@ -383,6 +384,7 @@
         "x": 50,
         "y": 25
       }
-    }
+    },
+    "enabled": true
   }
 }

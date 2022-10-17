@@ -20,8 +20,8 @@
     },
     "0c80c39b-4813-4e67-b4fb-5a0bba85f994": {
       "_id": "0c80c39b-4813-4e67-b4fb-5a0bba85f994",
-      "validateInput": false,
       "passwordAttribute": "password",
+      "validateInput": false,
       "_type": {
         "_id": "ValidatedPasswordNode",
         "name": "Platform Password",
@@ -73,8 +73,8 @@
         }
       ]
     },
-    "a12bc72f-ad97-4f1e-a789-a1fa3dd566c8": {
-      "_id": "a12bc72f-ad97-4f1e-a789-a1fa3dd566c8",
+    "4e6f1210-ac18-4798-a142-16c83d8a200c": {
+      "_id": "4e6f1210-ac18-4798-a142-16c83d8a200c",
       "nodes": [
         {
           "_id": "7354982f-57b6-4b04-9ddc-f1dd1e1e07d0",
@@ -87,12 +87,9 @@
           "displayName": "Platform Password"
         }
       ],
-      "pageDescription": {
-        "en": "New here? <a href=\"#/service/Registration\">Create an account</a><br><a href=\"#/service/ForgottenUsername\">Forgot username?</a><a href=\"#/service/ResetPassword\"> Forgot password?</a>"
-      },
-      "pageHeader": {
-        "en": "Sign In"
-      },
+      "pageDescription": {},
+      "stage": "{\"ValidatedCreatePasswordCallback\":[{\"id\":\"0c80c39b-4813-4e67-b4fb-5a0bba85f994\",\"confirmPassword\":true}]}",
+      "pageHeader": {},
       "_type": {
         "_id": "PageNode",
         "name": "Page Node",
@@ -129,7 +126,7 @@
     "uiConfig": {
       "categories": "[\"Authentication\"]"
     },
-    "entryNodeId": "a12bc72f-ad97-4f1e-a789-a1fa3dd566c8",
+    "entryNodeId": "4e6f1210-ac18-4798-a142-16c83d8a200c",
     "nodes": {
       "2998c1c9-f4c8-4a00-b2c6-3426783ee49d": {
         "connections": {
@@ -138,8 +135,8 @@
         },
         "displayName": "Data Store Decision",
         "nodeType": "DataStoreDecisionNode",
-        "x": 315,
-        "y": 140
+        "x": 390,
+        "y": 242
       },
       "33b24514-3e50-4180-8f08-ab6f4e51b07e": {
         "connections": {
@@ -151,14 +148,14 @@
         "x": 815,
         "y": 180
       },
-      "a12bc72f-ad97-4f1e-a789-a1fa3dd566c8": {
+      "4e6f1210-ac18-4798-a142-16c83d8a200c": {
         "connections": {
           "outcome": "2998c1c9-f4c8-4a00-b2c6-3426783ee49d"
         },
         "displayName": "Page Node",
         "nodeType": "PageNode",
-        "x": 136,
-        "y": 59
+        "x": 164,
+        "y": 97.3680419921875
       },
       "bba3e0d8-8525-4e82-bf48-ac17f7988917": {
         "connections": {
@@ -173,17 +170,18 @@
     "description": "Platform Login Tree",
     "staticNodes": {
       "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
-        "x": 1008,
+        "x": 1113,
         "y": 186
       },
       "e301438c-0bd0-429c-ab0c-66126501069a": {
         "x": 624,
-        "y": 267
+        "y": 408
       },
       "startNode": {
-        "x": 50,
-        "y": 25
+        "x": 59,
+        "y": 99
       }
-    }
+    },
+    "enabled": true
   }
 }

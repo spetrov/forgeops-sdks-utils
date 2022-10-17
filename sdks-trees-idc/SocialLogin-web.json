@@ -2,8 +2,8 @@
 {
   "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
   "innernodes": {
-    "b4656eb7-0fa8-4cd1-affe-339d8ea00e0c": {
-      "_id": "b4656eb7-0fa8-4cd1-affe-339d8ea00e0c",
+    "73da85a5-5308-4865-b6e2-69017ace304b": {
+      "_id": "73da85a5-5308-4865-b6e2-69017ace304b",
       "_type": {
         "_id": "UsernameCollectorNode",
         "name": "Username Collector",
@@ -16,8 +16,8 @@
         }
       ]
     },
-    "cb34f98f-9d1d-4fe3-91d7-2401a436ec29": {
-      "_id": "cb34f98f-9d1d-4fe3-91d7-2401a436ec29",
+    "013d0b69-5340-45e8-a191-6181eddf97e2": {
+      "_id": "013d0b69-5340-45e8-a191-6181eddf97e2",
       "_type": {
         "_id": "PasswordCollectorNode",
         "name": "Password Collector",
@@ -30,13 +30,11 @@
         }
       ]
     },
-    "8f00c27a-e282-498a-8d92-4f39c92265b8": {
-      "_id": "8f00c27a-e282-498a-8d92-4f39c92265b8",
+    "f45201b4-4ef5-4bcc-9ff8-9db3b2d23b53": {
+      "_id": "f45201b4-4ef5-4bcc-9ff8-9db3b2d23b53",
       "includeLocalAuthentication": true,
       "filteredProviders": [
-        "apple-android",
-        "facebook-ios",
-        "google-android"
+        "apple-web"
       ],
       "identityAttribute": "mail",
       "passwordAttribute": "password",
@@ -59,99 +57,8 @@
     }
   },
   "nodes": {
-    "100de6bb-c35f-4747-9a72-c865f5258a44": {
-      "_id": "100de6bb-c35f-4747-9a72-c865f5258a44",
-      "messageYes": {},
-      "message": {
-        "en": "Skip patching!"
-      },
-      "messageNo": {},
-      "_type": {
-        "_id": "MessageNode",
-        "name": "Message Node",
-        "collection": true
-      },
-      "_outcomes": [
-        {
-          "id": "true",
-          "displayName": "True"
-        },
-        {
-          "id": "false",
-          "displayName": "False"
-        }
-      ]
-    },
-    "34deaab7-7bdb-4298-a5ac-71d7348f695b": {
-      "_id": "34deaab7-7bdb-4298-a5ac-71d7348f695b",
-      "identityResource": "managed/alpha_user",
-      "_type": {
-        "_id": "CreateObjectNode",
-        "name": "Create Object",
-        "collection": true
-      },
-      "_outcomes": [
-        {
-          "id": "CREATED",
-          "displayName": "Created"
-        },
-        {
-          "id": "FAILURE",
-          "displayName": "Failed"
-        }
-      ]
-    },
-    "379b6098-1949-445b-b049-c721d4aa45f4": {
-      "_id": "379b6098-1949-445b-b049-c721d4aa45f4",
-      "identityAttribute": "mail",
-      "identifier": "userName",
-      "_type": {
-        "_id": "IdentifyExistingUserNode",
-        "name": "Identify Existing User",
-        "collection": true
-      },
-      "_outcomes": [
-        {
-          "id": "true",
-          "displayName": "True"
-        },
-        {
-          "id": "false",
-          "displayName": "False"
-        }
-      ]
-    },
-    "47d20937-09f5-4adc-a690-cf52ca43ba4e": {
-      "_id": "47d20937-09f5-4adc-a690-cf52ca43ba4e",
-      "script": "e6c91dcc-ce85-49ca-a0c0-ea0bba844c77",
-      "outcomes": [
-        "true",
-        "false"
-      ],
-      "outputs": [
-        "*"
-      ],
-      "inputs": [
-        "*"
-      ],
-      "_type": {
-        "_id": "ScriptedDecisionNode",
-        "name": "Scripted Decision",
-        "collection": true
-      },
-      "_outcomes": [
-        {
-          "id": "true",
-          "displayName": "true"
-        },
-        {
-          "id": "false",
-          "displayName": "false"
-        }
-      ]
-    },
-    "8fe2bf84-65e7-4c59-970c-097dfa577a60": {
-      "_id": "8fe2bf84-65e7-4c59-970c-097dfa577a60",
+    "30cb0347-608e-43bb-b09b-8ceeea213d34": {
+      "_id": "30cb0347-608e-43bb-b09b-8ceeea213d34",
       "identityResource": "managed/alpha_user",
       "patchAsObject": false,
       "ignoredFields": [],
@@ -172,42 +79,59 @@
         }
       ]
     },
-    "94d85a7f-b6c6-43d9-87be-6ef724436fc6": {
-      "_id": "94d85a7f-b6c6-43d9-87be-6ef724436fc6",
-      "clientType": "NATIVE",
-      "script": "58c824ae-84ed-4724-82cd-db128fc3f6c",
-      "usernameAttribute": "userName",
+    "37505658-e5d1-44ed-858c-2dc1156111a0": {
+      "_id": "37505658-e5d1-44ed-858c-2dc1156111a0",
+      "identityAttribute": "mail",
+      "identifier": "userName",
       "_type": {
-        "_id": "SocialProviderHandlerNode",
-        "name": "Social Provider Handler Node",
+        "_id": "IdentifyExistingUserNode",
+        "name": "Identify Existing User",
         "collection": true
       },
       "_outcomes": [
         {
-          "id": "ACCOUNT_EXISTS",
-          "displayName": "Account exists"
+          "id": "true",
+          "displayName": "True"
         },
         {
-          "id": "NO_ACCOUNT",
-          "displayName": "No account exists"
+          "id": "false",
+          "displayName": "False"
         }
       ]
     },
-    "9bfac426-04e7-431e-a579-40876c7fd758": {
-      "_id": "9bfac426-04e7-431e-a579-40876c7fd758",
+    "79509092-d4c2-43b1-8d86-e1fd6a024f85": {
+      "_id": "79509092-d4c2-43b1-8d86-e1fd6a024f85",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "9966025b-927c-4053-8d54-ecf606511532": {
+      "_id": "9966025b-927c-4053-8d54-ecf606511532",
       "nodes": [
         {
-          "_id": "b4656eb7-0fa8-4cd1-affe-339d8ea00e0c",
+          "_id": "73da85a5-5308-4865-b6e2-69017ace304b",
           "nodeType": "UsernameCollectorNode",
           "displayName": "Username Collector"
         },
         {
-          "_id": "cb34f98f-9d1d-4fe3-91d7-2401a436ec29",
+          "_id": "013d0b69-5340-45e8-a191-6181eddf97e2",
           "nodeType": "PasswordCollectorNode",
           "displayName": "Password Collector"
         },
         {
-          "_id": "8f00c27a-e282-498a-8d92-4f39c92265b8",
+          "_id": "f45201b4-4ef5-4bcc-9ff8-9db3b2d23b53",
           "nodeType": "SelectIdPNode",
           "displayName": "Select Identity Provider"
         }
@@ -230,39 +154,48 @@
         }
       ]
     },
-    "f4e388af-92cd-4f0f-b13e-7108117d44b4": {
-      "_id": "f4e388af-92cd-4f0f-b13e-7108117d44b4",
+    "f1f2f0c1-e313-444b-8591-67d30292e4db": {
+      "_id": "f1f2f0c1-e313-444b-8591-67d30292e4db",
+      "identityResource": "managed/alpha_user",
       "_type": {
-        "_id": "DataStoreDecisionNode",
-        "name": "Data Store Decision",
+        "_id": "CreateObjectNode",
+        "name": "Create Object",
         "collection": true
       },
       "_outcomes": [
         {
-          "id": "true",
-          "displayName": "True"
+          "id": "CREATED",
+          "displayName": "Created"
         },
         {
-          "id": "false",
-          "displayName": "False"
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    },
+    "fae1ce6b-31e0-4bcd-b009-188bcc32f36e": {
+      "_id": "fae1ce6b-31e0-4bcd-b009-188bcc32f36e",
+      "clientType": "BROWSER",
+      "script": "58c824ae-84ed-4724-82cd-db128fc3f6c",
+      "usernameAttribute": "userName",
+      "_type": {
+        "_id": "SocialProviderHandlerNode",
+        "name": "Social Provider Handler Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "ACCOUNT_EXISTS",
+          "displayName": "Account exists"
+        },
+        {
+          "id": "NO_ACCOUNT",
+          "displayName": "No account exists"
         }
       ]
     }
   },
   "scripts": {
-    "e6c91dcc-ce85-49ca-a0c0-ea0bba844c77": {
-      "_id": "e6c91dcc-ce85-49ca-a0c0-ea0bba844c77",
-      "name": "Skip Patching",
-      "description": null,
-      "script": "aWYgKHNoYXJlZFN0YXRlLmdldCgibmFtZUVtcHR5T3JOdWxsIikuYXNCb29sZWFuKCkpIHsKICBvdXRjb21lID0gInRydWUiCn0gZWxzZSB7CiAgb3V0Y29tZSA9ICJmYWxzZSIKfQ==",
-      "default": false,
-      "language": "GROOVY",
-      "context": "AUTHENTICATION_TREE_DECISION_NODE",
-      "createdBy": "null",
-      "creationDate": 0,
-      "lastModifiedBy": "null",
-      "lastModifiedDate": 0
-    },
     "58c824ae-84ed-4724-82cd-db128fc3f6c": {
       "_id": "58c824ae-84ed-4724-82cd-db128fc3f6c",
       "name": "Normalized Profile to Managed User",
@@ -279,106 +212,86 @@
   },
   "emailTemplates": {},
   "tree": {
-    "_id": "SocialLogin-android",
+    "_id": "SocialLogin-web",
     "identityResource": "managed/alpha_user",
     "uiConfig": {
       "categories": "[]"
     },
-    "entryNodeId": "9bfac426-04e7-431e-a579-40876c7fd758",
+    "entryNodeId": "9966025b-927c-4053-8d54-ecf606511532",
     "nodes": {
-      "100de6bb-c35f-4747-9a72-c865f5258a44": {
-        "connections": {
-          "false": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
-          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
-        },
-        "displayName": "Skip patching",
-        "nodeType": "MessageNode",
-        "x": 894,
-        "y": 197
-      },
-      "34deaab7-7bdb-4298-a5ac-71d7348f695b": {
-        "connections": {
-          "CREATED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
-          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a"
-        },
-        "displayName": "Create Object",
-        "nodeType": "CreateObjectNode",
-        "x": 818,
-        "y": 462.015625
-      },
-      "379b6098-1949-445b-b049-c721d4aa45f4": {
-        "connections": {
-          "false": "34deaab7-7bdb-4298-a5ac-71d7348f695b",
-          "true": "47d20937-09f5-4adc-a690-cf52ca43ba4e"
-        },
-        "displayName": "Identify Existing User",
-        "nodeType": "IdentifyExistingUserNode",
-        "x": 628,
-        "y": 18.015625
-      },
-      "47d20937-09f5-4adc-a690-cf52ca43ba4e": {
-        "connections": {
-          "false": "8fe2bf84-65e7-4c59-970c-097dfa577a60",
-          "true": "100de6bb-c35f-4747-9a72-c865f5258a44"
-        },
-        "displayName": "Skip Patching?",
-        "nodeType": "ScriptedDecisionNode",
-        "x": 832,
-        "y": 20.015625
-      },
-      "8fe2bf84-65e7-4c59-970c-097dfa577a60": {
+      "30cb0347-608e-43bb-b09b-8ceeea213d34": {
         "connections": {
           "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a",
           "PATCHED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
         },
         "displayName": "Patch Object",
         "nodeType": "PatchObjectNode",
-        "x": 600,
-        "y": 360.015625
+        "x": 660,
+        "y": 43.015625
       },
-      "94d85a7f-b6c6-43d9-87be-6ef724436fc6": {
+      "37505658-e5d1-44ed-858c-2dc1156111a0": {
         "connections": {
-          "ACCOUNT_EXISTS": "379b6098-1949-445b-b049-c721d4aa45f4",
-          "NO_ACCOUNT": "379b6098-1949-445b-b049-c721d4aa45f4"
+          "false": "f1f2f0c1-e313-444b-8591-67d30292e4db",
+          "true": "30cb0347-608e-43bb-b09b-8ceeea213d34"
         },
-        "displayName": "Social Provider Handler Node",
-        "nodeType": "SocialProviderHandlerNode",
-        "x": 348,
-        "y": 42.015625
+        "displayName": "Identify Existing User",
+        "nodeType": "IdentifyExistingUserNode",
+        "x": 419,
+        "y": 213.015625
       },
-      "9bfac426-04e7-431e-a579-40876c7fd758": {
-        "connections": {
-          "localAuthentication": "f4e388af-92cd-4f0f-b13e-7108117d44b4",
-          "socialAuthentication": "94d85a7f-b6c6-43d9-87be-6ef724436fc6"
-        },
-        "displayName": "Page Node",
-        "nodeType": "PageNode",
-        "x": 125,
-        "y": 49.015625
-      },
-      "f4e388af-92cd-4f0f-b13e-7108117d44b4": {
+      "79509092-d4c2-43b1-8d86-e1fd6a024f85": {
         "connections": {
           "false": "e301438c-0bd0-429c-ab0c-66126501069a",
           "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
         },
         "displayName": "Data Store Decision",
         "nodeType": "DataStoreDecisionNode",
-        "x": 344,
-        "y": 268.015625
+        "x": 151,
+        "y": 401.015625
+      },
+      "9966025b-927c-4053-8d54-ecf606511532": {
+        "connections": {
+          "localAuthentication": "79509092-d4c2-43b1-8d86-e1fd6a024f85",
+          "socialAuthentication": "fae1ce6b-31e0-4bcd-b009-188bcc32f36e"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 124,
+        "y": 69.015625
+      },
+      "f1f2f0c1-e313-444b-8591-67d30292e4db": {
+        "connections": {
+          "CREATED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Create Object",
+        "nodeType": "CreateObjectNode",
+        "x": 657,
+        "y": 296.015625
+      },
+      "fae1ce6b-31e0-4bcd-b009-188bcc32f36e": {
+        "connections": {
+          "ACCOUNT_EXISTS": "37505658-e5d1-44ed-858c-2dc1156111a0",
+          "NO_ACCOUNT": "37505658-e5d1-44ed-858c-2dc1156111a0"
+        },
+        "displayName": "Social Provider Handler Node",
+        "nodeType": "SocialProviderHandlerNode",
+        "x": 334,
+        "y": 47.015625
       }
     },
     "staticNodes": {
       "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
-        "x": 1117,
-        "y": 88
+        "x": 938,
+        "y": 112
       },
       "e301438c-0bd0-429c-ab0c-66126501069a": {
-        "x": 1105,
-        "y": 324
+        "x": 946,
+        "y": 402
       },
       "startNode": {
-        "x": 17,
-        "y": 12
+        "x": 41,
+        "y": 20
       }
     },
     "enabled": true

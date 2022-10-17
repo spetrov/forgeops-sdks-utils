@@ -1,0 +1,174 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {},
+  "nodes": {
+    "3822271a-251a-4bec-8e77-b477708f1958": {
+      "_id": "3822271a-251a-4bec-8e77-b477708f1958",
+      "identityResource": "managed_alpha/user",
+      "patchAsObject": false,
+      "ignoredFields": [],
+      "identityAttribute": "userName",
+      "_type": {
+        "_id": "PatchObjectNode",
+        "name": "Patch Object",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "PATCHED",
+          "displayName": "Patched"
+        },
+        {
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    },
+    "4bccfed3-45a8-4dbb-8724-7db9e2cd1d83": {
+      "_id": "4bccfed3-45a8-4dbb-8724-7db9e2cd1d83",
+      "identityResource": "managed_alpha/user",
+      "_type": {
+        "_id": "CreateObjectNode",
+        "name": "Create Object",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "CREATED",
+          "displayName": "Created"
+        },
+        {
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    },
+    "87c789d1-c862-4a3a-a605-dfb4e3da7142": {
+      "_id": "87c789d1-c862-4a3a-a605-dfb4e3da7142",
+      "clientType": "BROWSER",
+      "script": "58c824ae-84ed-4724-82cd-db128fc3f6c",
+      "usernameAttribute": "userName",
+      "_type": {
+        "_id": "SocialProviderHandlerNode",
+        "name": "Social Provider Handler Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "ACCOUNT_EXISTS",
+          "displayName": "Account exists"
+        },
+        {
+          "id": "NO_ACCOUNT",
+          "displayName": "No account exists"
+        }
+      ]
+    },
+    "b7e7c32f-6737-4176-bd4c-96c0d06b9b33": {
+      "_id": "b7e7c32f-6737-4176-bd4c-96c0d06b9b33",
+      "includeLocalAuthentication": true,
+      "filteredProviders": [
+        "google-android"
+      ],
+      "identityAttribute": "mail",
+      "passwordAttribute": "password",
+      "offerOnlyExisting": false,
+      "_type": {
+        "_id": "SelectIdPNode",
+        "name": "Select Identity Provider",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "socialAuthentication",
+          "displayName": "Social Authentication"
+        },
+        {
+          "id": "localAuthentication",
+          "displayName": "Local Authentication"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "58c824ae-84ed-4724-82cd-db128fc3f6c": {
+      "_id": "58c824ae-84ed-4724-82cd-db128fc3f6c",
+      "name": "Normalized Profile to Managed User",
+      "description": "Converts a normalized social profile into a managed user",
+      "script": "LyoKICogQ29weXJpZ2h0IDIwMjAgRm9yZ2VSb2NrIEFTLiBBbGwgUmlnaHRzIFJlc2VydmVkCiAqCiAqIFVzZSBvZiB0aGlzIGNvZGUgcmVxdWlyZXMgYSBjb21tZXJjaWFsIHNvZnR3YXJlIGxpY2Vuc2Ugd2l0aCBGb3JnZVJvY2sgQVMuCiAqIG9yIHdpdGggb25lIG9mIGl0cyBhZmZpbGlhdGVzLiBBbGwgdXNlIHNoYWxsIGJlIGV4Y2x1c2l2ZWx5IHN1YmplY3QKICogdG8gc3VjaCBsaWNlbnNlIGJldHdlZW4gdGhlIGxpY2Vuc2VlIGFuZCBGb3JnZVJvY2sgQVMuCiAqLwoKaW1wb3J0IHN0YXRpYyBvcmcuZm9yZ2Vyb2NrLmpzb24uSnNvblZhbHVlLmZpZWxkCmltcG9ydCBzdGF0aWMgb3JnLmZvcmdlcm9jay5qc29uLkpzb25WYWx1ZS5qc29uCmltcG9ydCBzdGF0aWMgb3JnLmZvcmdlcm9jay5qc29uLkpzb25WYWx1ZS5vYmplY3QKCmltcG9ydCBvcmcuZm9yZ2Vyb2NrLmpzb24uSnNvblZhbHVlCgpKc29uVmFsdWUgbWFuYWdlZFVzZXIgPSBqc29uKG9iamVjdCgKICAgICAgICBmaWVsZCgiZ2l2ZW5OYW1lIiwgbm9ybWFsaXplZFByb2ZpbGUuZ2l2ZW5OYW1lKSwKICAgICAgICBmaWVsZCgic24iLCBub3JtYWxpemVkUHJvZmlsZS5mYW1pbHlOYW1lKSwKICAgICAgICBmaWVsZCgibWFpbCIsIG5vcm1hbGl6ZWRQcm9maWxlLmVtYWlsKSwKICAgICAgICBmaWVsZCgidXNlck5hbWUiLCBub3JtYWxpemVkUHJvZmlsZS51c2VybmFtZSkpKQoKaWYgKG5vcm1hbGl6ZWRQcm9maWxlLnBvc3RhbEFkZHJlc3MuaXNOb3ROdWxsKCkpIG1hbmFnZWRVc2VyLnB1dCgicG9zdGFsQWRkcmVzcyIsIG5vcm1hbGl6ZWRQcm9maWxlLnBvc3RhbEFkZHJlc3MpCmlmIChub3JtYWxpemVkUHJvZmlsZS5hZGRyZXNzTG9jYWxpdHkuaXNOb3ROdWxsKCkpIG1hbmFnZWRVc2VyLnB1dCgiY2l0eSIsIG5vcm1hbGl6ZWRQcm9maWxlLmFkZHJlc3NMb2NhbGl0eSkKaWYgKG5vcm1hbGl6ZWRQcm9maWxlLmFkZHJlc3NSZWdpb24uaXNOb3ROdWxsKCkpIG1hbmFnZWRVc2VyLnB1dCgic3RhdGVQcm92aW5jZSIsIG5vcm1hbGl6ZWRQcm9maWxlLmFkZHJlc3NSZWdpb24pCmlmIChub3JtYWxpemVkUHJvZmlsZS5wb3N0YWxDb2RlLmlzTm90TnVsbCgpKSBtYW5hZ2VkVXNlci5wdXQoInBvc3RhbENvZGUiLCBub3JtYWxpemVkUHJvZmlsZS5wb3N0YWxDb2RlKQppZiAobm9ybWFsaXplZFByb2ZpbGUuY291bnRyeS5pc05vdE51bGwoKSkgbWFuYWdlZFVzZXIucHV0KCJjb3VudHJ5Iiwgbm9ybWFsaXplZFByb2ZpbGUuY291bnRyeSkKaWYgKG5vcm1hbGl6ZWRQcm9maWxlLnBob25lLmlzTm90TnVsbCgpKSBtYW5hZ2VkVXNlci5wdXQoInRlbGVwaG9uZU51bWJlciIsIG5vcm1hbGl6ZWRQcm9maWxlLnBob25lKQoKLy8gaWYgdGhlIGdpdmVuTmFtZSBhbmQgZmFtaWx5TmFtZSBpcyBudWxsIG9yIGVtcHR5Ci8vIHRoZW4gYWRkIGEgYm9vbGVhbiBmbGFnIHRvIHRoZSBzaGFyZWQgc3RhdGUgdG8gaW5kaWNhdGUgbmFtZXMgYXJlIG5vdCBwcmVzZW50Ci8vIHRoaXMgY291bGQgYmUgdXNlZCBlbHNld2hlcmUKLy8gZm9yIGVnLiB0aGlzIGNvdWxkIGJlIHVzZWQgaW4gYSBzY3JpcHRlZCBkZWNpc2lvbiBub2RlIHRvIGJ5LXBhc3MgcGF0Y2hpbmcKLy8gdGhlIHVzZXIgb2JqZWN0IHdpdGggYmxhbmsgdmFsdWVzIHdoZW4gZ2l2ZW5OYW1lICBhbmQgZmFtaWx5TmFtZSBpcyBub3QgcHJlc2VudApib29sZWFuIG5vR2l2ZW5OYW1lID0gbm9ybWFsaXplZFByb2ZpbGUuZ2l2ZW5OYW1lLmlzTnVsbCgpIHx8ICghbm9ybWFsaXplZFByb2ZpbGUuZ2l2ZW5OYW1lLmFzU3RyaW5nKCk/LnRyaW0oKSkKYm9vbGVhbiBub0ZhbWlseU5hbWUgPSBub3JtYWxpemVkUHJvZmlsZS5mYW1pbHlOYW1lLmlzTnVsbCgpIHx8ICghbm9ybWFsaXplZFByb2ZpbGUuZmFtaWx5TmFtZS5hc1N0cmluZygpPy50cmltKCkpCnNoYXJlZFN0YXRlLnB1dCgibmFtZUVtcHR5T3JOdWxsIiwgbm9HaXZlbk5hbWUgJiYgbm9GYW1pbHlOYW1lKQoKcmV0dXJuIG1hbmFnZWRVc2Vy",
+      "default": true,
+      "language": "GROOVY",
+      "context": "SOCIAL_IDP_PROFILE_TRANSFORMATION",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    }
+  },
+  "emailTemplates": {},
+  "tree": {
+    "_id": "AMSocialLogin",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "b7e7c32f-6737-4176-bd4c-96c0d06b9b33",
+    "nodes": {
+      "3822271a-251a-4bec-8e77-b477708f1958": {
+        "connections": {
+          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "PATCHED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Patch Object",
+        "nodeType": "PatchObjectNode",
+        "x": 798,
+        "y": 323.3680419921875
+      },
+      "4bccfed3-45a8-4dbb-8724-7db9e2cd1d83": {
+        "connections": {
+          "CREATED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Create Object",
+        "nodeType": "CreateObjectNode",
+        "x": 819,
+        "y": 178.3680419921875
+      },
+      "87c789d1-c862-4a3a-a605-dfb4e3da7142": {
+        "connections": {
+          "ACCOUNT_EXISTS": "3822271a-251a-4bec-8e77-b477708f1958",
+          "NO_ACCOUNT": "4bccfed3-45a8-4dbb-8724-7db9e2cd1d83"
+        },
+        "displayName": "Social Provider Handler Node",
+        "nodeType": "SocialProviderHandlerNode",
+        "x": 469,
+        "y": 129.3680419921875
+      },
+      "b7e7c32f-6737-4176-bd4c-96c0d06b9b33": {
+        "connections": {
+          "socialAuthentication": "87c789d1-c862-4a3a-a605-dfb4e3da7142"
+        },
+        "displayName": "Select Identity Provider",
+        "nodeType": "SelectIdPNode",
+        "x": 202,
+        "y": 215.3680419921875
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1083,
+        "y": 59
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1104,
+        "y": 392
+      },
+      "startNode": {
+        "x": 50,
+        "y": 250
+      }
+    },
+    "enabled": true
+  }
+}

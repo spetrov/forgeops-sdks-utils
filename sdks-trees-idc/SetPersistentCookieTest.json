@@ -32,6 +32,26 @@
     }
   },
   "nodes": {
+    "47a1be64-7e18-4e1c-99d9-965e67e800b4": {
+      "_id": "47a1be64-7e18-4e1c-99d9-965e67e800b4",
+      "persistentCookieName": "session-jwt",
+      "useHttpOnlyCookie": true,
+      "useSecureCookie": true,
+      "hmacSigningKey": null,
+      "idleTimeout": 5,
+      "maxLife": 5,
+      "_type": {
+        "_id": "SetPersistentCookieNode",
+        "name": "Set Persistent Cookie",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
     "c0cd577e-0cd1-484a-97f4-ee515dc19c29": {
       "_id": "c0cd577e-0cd1-484a-97f4-ee515dc19c29",
       "persistentCookieName": "session-jwt",
@@ -109,6 +129,15 @@
     },
     "entryNodeId": "d98f55b5-7228-42f1-948e-7a1924e2b3b2",
     "nodes": {
+      "47a1be64-7e18-4e1c-99d9-965e67e800b4": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Set Persistent Cookie",
+        "nodeType": "SetPersistentCookieNode",
+        "x": 579,
+        "y": 171
+      },
       "c0cd577e-0cd1-484a-97f4-ee515dc19c29": {
         "connections": {
           "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
@@ -130,7 +159,7 @@
       "dd855f28-4518-4454-ad21-e7f6dbf75baf": {
         "connections": {
           "false": "e301438c-0bd0-429c-ab0c-66126501069a",
-          "true": "c0cd577e-0cd1-484a-97f4-ee515dc19c29"
+          "true": "47a1be64-7e18-4e1c-99d9-965e67e800b4"
         },
         "displayName": "Data Store Decision",
         "nodeType": "DataStoreDecisionNode",
@@ -140,17 +169,18 @@
     },
     "staticNodes": {
       "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
-        "x": 688,
-        "y": 146
+        "x": 902,
+        "y": 147
       },
       "e301438c-0bd0-429c-ab0c-66126501069a": {
-        "x": 499,
-        "y": 182
+        "x": 465,
+        "y": 291
       },
       "startNode": {
         "x": 50,
         "y": 25
       }
-    }
+    },
+    "enabled": true
   }
 }
