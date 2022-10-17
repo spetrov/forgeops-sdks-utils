@@ -1,0 +1,388 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "a5baef0e-ad20-4a09-9550-037d46c3d821": {
+      "_id": "a5baef0e-ad20-4a09-9550-037d46c3d821",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "2347158e-5833-4d31-9ec7-d56ba18c0e4d": {
+      "_id": "2347158e-5833-4d31-9ec7-d56ba18c0e4d",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "12ff93fc-138e-43a6-affb-5800d24b24d7": {
+      "_id": "12ff93fc-138e-43a6-affb-5800d24b24d7",
+      "registerDeviceLabel": {},
+      "skipStepLabel": {},
+      "getAppLabel": {},
+      "message": {},
+      "getApp": true,
+      "optOutLabel": {},
+      "mandatory": false,
+      "_type": {
+        "_id": "MultiFactorRegistrationOptionsNode",
+        "name": "MFA Registration Options",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "registerOutcome",
+          "displayName": "Register"
+        },
+        {
+          "id": "getAppOutcome",
+          "displayName": "Get App"
+        },
+        {
+          "id": "skipOutcome",
+          "displayName": "Skip"
+        },
+        {
+          "id": "optOutOutcome",
+          "displayName": "Opt-out"
+        }
+      ]
+    },
+    "1ce1bcd8-2cd1-4b61-a19a-3e66aacaef5e": {
+      "_id": "1ce1bcd8-2cd1-4b61-a19a-3e66aacaef5e",
+      "_type": {
+        "_id": "RecoveryCodeDisplayNode",
+        "name": "Recovery Code Display Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "33c670d3-68e6-4969-bbae-3329bb4bafc8": {
+      "_id": "33c670d3-68e6-4969-bbae-3329bb4bafc8",
+      "_type": {
+        "_id": "OptOutMultiFactorAuthenticationNode",
+        "name": "Opt-out Multi-Factor Authentication",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "712d32c8-2f92-4d6a-8ab3-20d15e15d8e5": {
+      "_id": "712d32c8-2f92-4d6a-8ab3-20d15e15d8e5",
+      "nodes": [
+        {
+          "_id": "a5baef0e-ad20-4a09-9550-037d46c3d821",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "2347158e-5833-4d31-9ec7-d56ba18c0e4d",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "777506cb-aa18-4a74-ad75-a402f19aafbe": {
+      "_id": "777506cb-aa18-4a74-ad75-a402f19aafbe",
+      "totpTimeInterval": 30,
+      "maximumAllowedClockDrift": 5,
+      "totpTimeSteps": 2,
+      "totpHashAlgorithm": "HMAC_SHA1",
+      "isRecoveryCodeAllowed": true,
+      "algorithm": "HOTP",
+      "hotpWindowSize": 100,
+      "_type": {
+        "_id": "OathTokenVerifierNode",
+        "name": "OATH Token Verifier",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "successOutcome",
+          "displayName": "Success"
+        },
+        {
+          "id": "failureOutcome",
+          "displayName": "Failure"
+        },
+        {
+          "id": "notRegisteredOutcome",
+          "displayName": "Not registered"
+        },
+        {
+          "id": "recoveryCodeOutcome",
+          "displayName": "Recovery Code"
+        }
+      ]
+    },
+    "a862686c-9002-41a5-8c70-d3df033d1ac8": {
+      "_id": "a862686c-9002-41a5-8c70-d3df033d1ac8",
+      "addChecksum": false,
+      "bgColor": "032b75",
+      "generateRecoveryCodes": true,
+      "truncationOffset": -1,
+      "algorithm": "HOTP",
+      "passwordLength": "SIX_DIGITS",
+      "totpTimeInterval": 30,
+      "accountName": "EMAIL_ADDRESS",
+      "issuer": "ForgeRock",
+      "minSharedSecretLength": 32,
+      "totpHashAlgorithm": "HMAC_SHA1",
+      "_type": {
+        "_id": "OathRegistrationNode",
+        "name": "OATH Registration",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "successOutcome",
+          "displayName": "Success"
+        },
+        {
+          "id": "failureOutcome",
+          "displayName": "Failure"
+        }
+      ]
+    },
+    "b3a3f0c1-38e1-4bcc-96b3-59e322369f16": {
+      "_id": "b3a3f0c1-38e1-4bcc-96b3-59e322369f16",
+      "continueLabel": {},
+      "message": {},
+      "googleLink": "https://play.google.com/store/apps/details?id=com.forgerock.authenticator",
+      "appleLink": "https://itunes.apple.com/app/forgerock-authenticator/id1038442926",
+      "_type": {
+        "_id": "GetAuthenticatorAppNode",
+        "name": "Get Authenticator App",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "d076b012-d191-480b-93dc-f66f9deae920": {
+      "_id": "d076b012-d191-480b-93dc-f66f9deae920",
+      "incrementUserAttributeOnFailure": true,
+      "retryLimit": 3,
+      "_type": {
+        "_id": "RetryLimitDecisionNode",
+        "name": "Retry Limit Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "Retry",
+          "displayName": "Retry"
+        },
+        {
+          "id": "Reject",
+          "displayName": "Reject"
+        }
+      ]
+    },
+    "dc19f88e-bde4-4411-8eb6-50538102cf25": {
+      "_id": "dc19f88e-bde4-4411-8eb6-50538102cf25",
+      "recoveryCodeType": "OATH",
+      "_type": {
+        "_id": "RecoveryCodeCollectorDecisionNode",
+        "name": "Recovery Code Collector Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "f0965a1c-02c6-4325-8275-f494ac059245": {
+      "_id": "f0965a1c-02c6-4325-8275-f494ac059245",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "HOTP-Authn",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "712d32c8-2f92-4d6a-8ab3-20d15e15d8e5",
+    "nodes": {
+      "12ff93fc-138e-43a6-affb-5800d24b24d7": {
+        "connections": {
+          "getAppOutcome": "b3a3f0c1-38e1-4bcc-96b3-59e322369f16",
+          "optOutOutcome": "33c670d3-68e6-4969-bbae-3329bb4bafc8",
+          "registerOutcome": "a862686c-9002-41a5-8c70-d3df033d1ac8",
+          "skipOutcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "MFA Registration Options",
+        "nodeType": "MultiFactorRegistrationOptionsNode",
+        "x": 70,
+        "y": 351
+      },
+      "1ce1bcd8-2cd1-4b61-a19a-3e66aacaef5e": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Recovery Code Display Node",
+        "nodeType": "RecoveryCodeDisplayNode",
+        "x": 558,
+        "y": 348
+      },
+      "33c670d3-68e6-4969-bbae-3329bb4bafc8": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Opt-out Multi-Factor Authentication",
+        "nodeType": "OptOutMultiFactorAuthenticationNode",
+        "x": 405,
+        "y": 461
+      },
+      "712d32c8-2f92-4d6a-8ab3-20d15e15d8e5": {
+        "connections": {
+          "outcome": "f0965a1c-02c6-4325-8275-f494ac059245"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 125,
+        "y": 54
+      },
+      "777506cb-aa18-4a74-ad75-a402f19aafbe": {
+        "connections": {
+          "failureOutcome": "d076b012-d191-480b-93dc-f66f9deae920",
+          "notRegisteredOutcome": "12ff93fc-138e-43a6-affb-5800d24b24d7",
+          "recoveryCodeOutcome": "dc19f88e-bde4-4411-8eb6-50538102cf25",
+          "successOutcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "OATH Token Verifier",
+        "nodeType": "OathTokenVerifierNode",
+        "x": 535,
+        "y": 29
+      },
+      "a862686c-9002-41a5-8c70-d3df033d1ac8": {
+        "connections": {
+          "failureOutcome": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "successOutcome": "1ce1bcd8-2cd1-4b61-a19a-3e66aacaef5e"
+        },
+        "displayName": "OATH Registration",
+        "nodeType": "OathRegistrationNode",
+        "x": 333,
+        "y": 344
+      },
+      "b3a3f0c1-38e1-4bcc-96b3-59e322369f16": {
+        "connections": {
+          "outcome": "12ff93fc-138e-43a6-affb-5800d24b24d7"
+        },
+        "displayName": "Get Authenticator App",
+        "nodeType": "GetAuthenticatorAppNode",
+        "x": 284,
+        "y": 562
+      },
+      "d076b012-d191-480b-93dc-f66f9deae920": {
+        "connections": {
+          "Reject": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "Retry": "777506cb-aa18-4a74-ad75-a402f19aafbe"
+        },
+        "displayName": "Retry Limit Decision",
+        "nodeType": "RetryLimitDecisionNode",
+        "x": 779,
+        "y": 101
+      },
+      "dc19f88e-bde4-4411-8eb6-50538102cf25": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Recovery Code Collector Decision",
+        "nodeType": "RecoveryCodeCollectorDecisionNode",
+        "x": 685,
+        "y": 250
+      },
+      "f0965a1c-02c6-4325-8275-f494ac059245": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "777506cb-aa18-4a74-ad75-a402f19aafbe"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 312,
+        "y": 43
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1073,
+        "y": 20
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1088,
+        "y": 401
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

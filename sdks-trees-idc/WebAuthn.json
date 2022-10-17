@@ -1,0 +1,537 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "57a09c9e-2cb3-4e6b-8fdf-146991d25a6b": {
+      "_id": "57a09c9e-2cb3-4e6b-8fdf-146991d25a6b",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "c2187804-fe02-48cb-b1f0-3c814d043b3d": {
+      "_id": "c2187804-fe02-48cb-b1f0-3c814d043b3d",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "376b8bd7-afc3-431b-a650-29dcf1a4ca69": {
+      "_id": "376b8bd7-afc3-431b-a650-29dcf1a4ca69",
+      "requiresResidentKey": true,
+      "asScript": false,
+      "relyingPartyDomain": "default.forgeops.petrov.ca",
+      "origins": [
+        "ios:bundle-id:com.forgerock.ios.sdk.social",
+        "android:apk-key-hash:R8xO7rlQWaWL4BlFygptWRb5qcKWdfjzZIaSRit9XVw"
+      ],
+      "userVerificationRequirement": "PREFERRED",
+      "isRecoveryCodeAllowed": false,
+      "timeout": 60,
+      "_type": {
+        "_id": "WebAuthnAuthenticationNode",
+        "name": "WebAuthn Authentication Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "noDevice",
+          "displayName": "No Device Registered"
+        },
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "error",
+          "displayName": "Client Error"
+        }
+      ]
+    },
+    "5ecaaf4a-6128-4c07-9336-4b441ed41490": {
+      "_id": "5ecaaf4a-6128-4c07-9336-4b441ed41490",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "5ed9b8c4-c2f3-4234-8e07-e512c12fafe5": {
+      "_id": "5ed9b8c4-c2f3-4234-8e07-e512c12fafe5",
+      "script": "01a040f7-1458-4a56-807a-71c4cde29b8f",
+      "outcomes": [
+        "NotAllowedError",
+        "SecurityError",
+        "AbortError",
+        "UnknownError"
+      ],
+      "outputs": [
+        "*"
+      ],
+      "inputs": [
+        "*"
+      ],
+      "_type": {
+        "_id": "ScriptedDecisionNode",
+        "name": "Scripted Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "NotAllowedError",
+          "displayName": "NotAllowedError"
+        },
+        {
+          "id": "SecurityError",
+          "displayName": "SecurityError"
+        },
+        {
+          "id": "AbortError",
+          "displayName": "AbortError"
+        },
+        {
+          "id": "UnknownError",
+          "displayName": "UnknownError"
+        }
+      ]
+    },
+    "a34e4c55-f1e2-4c44-a599-4f1b4d196345": {
+      "_id": "a34e4c55-f1e2-4c44-a599-4f1b4d196345",
+      "script": "39f59c80-2dee-4291-b11b-9a5f96502ace",
+      "outcomes": [
+        "continue"
+      ],
+      "outputs": [
+        "*"
+      ],
+      "inputs": [
+        "*"
+      ],
+      "_type": {
+        "_id": "ScriptedDecisionNode",
+        "name": "Scripted Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "continue",
+          "displayName": "continue"
+        }
+      ]
+    },
+    "a5da3669-ea92-4502-b260-a36b90703885": {
+      "_id": "a5da3669-ea92-4502-b260-a36b90703885",
+      "messageYes": {
+        "en": "OK"
+      },
+      "message": {
+        "en": "Unsupported"
+      },
+      "messageNo": {
+        "en": "Retry"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "abbf91a5-baac-4e38-a324-0be87ec37727": {
+      "_id": "abbf91a5-baac-4e38-a324-0be87ec37727",
+      "messageYes": {
+        "en": "Yes"
+      },
+      "message": {
+        "en": "Login?"
+      },
+      "messageNo": {
+        "en": "No"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "af53c6ff-1ef6-4982-9f65-7ac024355598": {
+      "_id": "af53c6ff-1ef6-4982-9f65-7ac024355598",
+      "messageYes": {
+        "en": "OK"
+      },
+      "message": {
+        "en": "Client Error"
+      },
+      "messageNo": {
+        "en": "Retry"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "b5342a48-3787-4c3d-9e5f-a45eaf8b6d7f": {
+      "_id": "b5342a48-3787-4c3d-9e5f-a45eaf8b6d7f",
+      "messageYes": {
+        "en": "Yes"
+      },
+      "message": {
+        "en": "Enable Biometrics"
+      },
+      "messageNo": {
+        "en": "No"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "c89307f0-708c-4ea6-9919-b585b94350db": {
+      "_id": "c89307f0-708c-4ea6-9919-b585b94350db",
+      "trustStoreAlias": "trustalias",
+      "relyingPartyName": "ForgeRock",
+      "generateRecoveryCodes": true,
+      "relyingPartyDomain": "default.forgeops.petrov.ca",
+      "storeAttestationDataInTransientState": false,
+      "origins": [
+        "ios:bundle-id:com.forgerock.ios.sdk.social",
+        "android:apk-key-hash:R8xO7rlQWaWL4BlFygptWRb5qcKWdfjzZIaSRit9XVw"
+      ],
+      "userVerificationRequirement": "PREFERRED",
+      "postponeDeviceProfileStorage": false,
+      "excludeCredentials": true,
+      "requiresResidentKey": true,
+      "authenticatorAttachment": "UNSPECIFIED",
+      "asScript": false,
+      "acceptedSigningAlgorithms": [
+        "ES256",
+        "RS256"
+      ],
+      "attestationPreference": "NONE",
+      "enforceRevocationCheck": false,
+      "timeout": 60,
+      "displayNameSharedState": "displayName",
+      "_type": {
+        "_id": "WebAuthnRegistrationNode",
+        "name": "WebAuthn Registration Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "error",
+          "displayName": "Client Error"
+        }
+      ]
+    },
+    "e5dfe11c-57dd-4210-a22d-1e4cc6770786": {
+      "_id": "e5dfe11c-57dd-4210-a22d-1e4cc6770786",
+      "nodes": [
+        {
+          "_id": "57a09c9e-2cb3-4e6b-8fdf-146991d25a6b",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "c2187804-fe02-48cb-b1f0-3c814d043b3d",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "e6fc4116-149c-4bb9-a581-52932bcf027f": {
+      "_id": "e6fc4116-149c-4bb9-a581-52932bcf027f",
+      "messageYes": {
+        "en": "OK"
+      },
+      "message": {
+        "en": "Filure"
+      },
+      "messageNo": {
+        "en": "Retry"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "01a040f7-1458-4a56-807a-71c4cde29b8f": {
+      "_id": "01a040f7-1458-4a56-807a-71c4cde29b8f",
+      "name": "WebAuthnErrorHandler",
+      "description": "null",
+      "script": "Ly9FcnJvciBmb3JtYXQgZXhhbXBsZTogRVJST1I6OkludmFsaWRTdGF0ZUVycm9yOk5vIENyZWRlbnRpYWwgaXMgcmVnaXN0ZXJlZAoKdmFyIGVycm9yID0gc2hhcmVkU3RhdGUuZ2V0KCJXZWJBdXRoZW50aWNhdGlvbkRPTUV4Y2VwdGlvbiIpOwpsb2dnZXIubWVzc2FnZShlcnJvcik7CgovLyBNYXRjaCB3b3JkIG9yIHBocmFzZSBiZXR3ZWVuICI6OiIgYW5kICI6Igp2YXIgcmVzdWx0ID0gZXJyb3IubWF0Y2goLzo6KFtcd1xzXXsxLH0pOnswLH0vKTsKb3V0Y29tZSA9IHJlc3VsdCA/IHJlc3VsdFsxXSA6ICdVbmtub3duRXJyb3InOwoKbG9nZ2VyLm1lc3NhZ2UoIk91dGNvbWU6ICIgKyBvdXRjb21lICsgInwgRVJST1I6ICIgKyBlcnJvcik7",
+      "default": false,
+      "language": "JAVASCRIPT",
+      "context": "AUTHENTICATION_TREE_DECISION_NODE",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    },
+    "39f59c80-2dee-4291-b11b-9a5f96502ace": {
+      "_id": "39f59c80-2dee-4291-b11b-9a5f96502ace",
+      "name": "displayName",
+      "description": null,
+      "script": "c2hhcmVkU3RhdGUucHV0KCJkaXNwbGF5TmFtZSIsICJHYW5jaG8gVG9kb3JvdiIpOwpvdXRjb21lID0gImNvbnRpbnVlIjs=",
+      "default": false,
+      "language": "GROOVY",
+      "context": "AUTHENTICATION_TREE_DECISION_NODE",
+      "createdBy": "null",
+      "creationDate": 0,
+      "lastModifiedBy": "null",
+      "lastModifiedDate": 0
+    }
+  },
+  "emailTemplates": {},
+  "tree": {
+    "_id": "WebAuthn",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "376b8bd7-afc3-431b-a650-29dcf1a4ca69",
+    "nodes": {
+      "376b8bd7-afc3-431b-a650-29dcf1a4ca69": {
+        "connections": {
+          "error": "5ed9b8c4-c2f3-4234-8e07-e512c12fafe5",
+          "failure": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "noDevice": "e5dfe11c-57dd-4210-a22d-1e4cc6770786",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "unsupported": "e5dfe11c-57dd-4210-a22d-1e4cc6770786"
+        },
+        "displayName": "WebAuthn Authentication Node",
+        "nodeType": "WebAuthnAuthenticationNode",
+        "x": 239,
+        "y": 30
+      },
+      "5ecaaf4a-6128-4c07-9336-4b441ed41490": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "b5342a48-3787-4c3d-9e5f-a45eaf8b6d7f"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 748,
+        "y": 20
+      },
+      "5ed9b8c4-c2f3-4234-8e07-e512c12fafe5": {
+        "connections": {
+          "AbortError": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "NotAllowedError": "e5dfe11c-57dd-4210-a22d-1e4cc6770786",
+          "SecurityError": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "UnknownError": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Scripted Decision",
+        "nodeType": "ScriptedDecisionNode",
+        "x": 329,
+        "y": 386
+      },
+      "a34e4c55-f1e2-4c44-a599-4f1b4d196345": {
+        "connections": {
+          "continue": "c89307f0-708c-4ea6-9919-b585b94350db"
+        },
+        "displayName": "Scripted Decision",
+        "nodeType": "ScriptedDecisionNode",
+        "x": 606,
+        "y": 282.015625
+      },
+      "a5da3669-ea92-4502-b260-a36b90703885": {
+        "connections": {
+          "false": "c89307f0-708c-4ea6-9919-b585b94350db",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Unsupported",
+        "nodeType": "MessageNode",
+        "x": 809,
+        "y": 488
+      },
+      "abbf91a5-baac-4e38-a324-0be87ec37727": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "376b8bd7-afc3-431b-a650-29dcf1a4ca69"
+        },
+        "displayName": "Force User Interaction",
+        "nodeType": "MessageNode",
+        "x": 35,
+        "y": 222
+      },
+      "af53c6ff-1ef6-4982-9f65-7ac024355598": {
+        "connections": {
+          "false": "c89307f0-708c-4ea6-9919-b585b94350db",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Client Error",
+        "nodeType": "MessageNode",
+        "x": 949,
+        "y": 492
+      },
+      "b5342a48-3787-4c3d-9e5f-a45eaf8b6d7f": {
+        "connections": {
+          "false": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "true": "c89307f0-708c-4ea6-9919-b585b94350db"
+        },
+        "displayName": "Enable WebAuthn?",
+        "nodeType": "MessageNode",
+        "x": 803,
+        "y": 134
+      },
+      "c89307f0-708c-4ea6-9919-b585b94350db": {
+        "connections": {
+          "error": "af53c6ff-1ef6-4982-9f65-7ac024355598",
+          "failure": "e6fc4116-149c-4bb9-a581-52932bcf027f",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "unsupported": "a5da3669-ea92-4502-b260-a36b90703885"
+        },
+        "displayName": "WebAuthn Registration Node",
+        "nodeType": "WebAuthnRegistrationNode",
+        "x": 856,
+        "y": 258
+      },
+      "e5dfe11c-57dd-4210-a22d-1e4cc6770786": {
+        "connections": {
+          "outcome": "5ecaaf4a-6128-4c07-9336-4b441ed41490"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 580,
+        "y": 0
+      },
+      "e6fc4116-149c-4bb9-a581-52932bcf027f": {
+        "connections": {
+          "false": "c89307f0-708c-4ea6-9919-b585b94350db",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Failure",
+        "nodeType": "MessageNode",
+        "x": 1078,
+        "y": 490
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1217,
+        "y": 63
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1224,
+        "y": 331
+      },
+      "startNode": {
+        "x": 31,
+        "y": 20
+      }
+    }
+  }
+}

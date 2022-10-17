@@ -1,0 +1,165 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "9972203b-52ac-4edd-a934-bd682b398d4c": {
+      "_id": "9972203b-52ac-4edd-a934-bd682b398d4c",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "ce45777d-a335-4286-84d6-4d9a8820e7bb": {
+      "_id": "ce45777d-a335-4286-84d6-4d9a8820e7bb",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "2856fbf5-8d61-48ac-bc5e-a62da3373350": {
+      "_id": "2856fbf5-8d61-48ac-bc5e-a62da3373350",
+      "nodes": [
+        {
+          "_id": "9972203b-52ac-4edd-a934-bd682b398d4c",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "ce45777d-a335-4286-84d6-4d9a8820e7bb",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "9af2f983-54f3-48f1-b3b4-f8b92ea7b2d1": {
+      "_id": "9af2f983-54f3-48f1-b3b4-f8b92ea7b2d1",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "d4780aa6-c791-4b3b-86e2-6198769b1682": {
+      "_id": "d4780aa6-c791-4b3b-86e2-6198769b1682",
+      "spamDetectionTolerance": 3,
+      "spamDetectionEnabled": false,
+      "exitMessage": {
+        "en": "Exit"
+      },
+      "waitingMessage": {
+        "en": "Please Wait"
+      },
+      "secondsToWait": 10,
+      "exitable": true,
+      "_type": {
+        "_id": "PollingWaitNode",
+        "name": "Polling Wait Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "DONE",
+          "displayName": "Done"
+        },
+        {
+          "id": "EXITED",
+          "displayName": "Exited"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "PollingWaitCallbackTest",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "2856fbf5-8d61-48ac-bc5e-a62da3373350",
+    "nodes": {
+      "2856fbf5-8d61-48ac-bc5e-a62da3373350": {
+        "connections": {
+          "outcome": "9af2f983-54f3-48f1-b3b4-f8b92ea7b2d1"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 143,
+        "y": 30
+      },
+      "9af2f983-54f3-48f1-b3b4-f8b92ea7b2d1": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "d4780aa6-c791-4b3b-86e2-6198769b1682"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 337,
+        "y": 26.375
+      },
+      "d4780aa6-c791-4b3b-86e2-6198769b1682": {
+        "connections": {
+          "DONE": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "EXITED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Polling Wait Node",
+        "nodeType": "PollingWaitNode",
+        "x": 513,
+        "y": 26
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 709,
+        "y": 125
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 533,
+        "y": 243
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

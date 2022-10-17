@@ -1,0 +1,420 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "4f3b3d17-ebc7-4949-acdd-5e2c34984523": {
+      "_id": "4f3b3d17-ebc7-4949-acdd-5e2c34984523",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "395df849-e2c9-4e11-b075-657531108d97": {
+      "_id": "395df849-e2c9-4e11-b075-657531108d97",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "2cb7ebd8-f66f-4e02-a76e-ca28c283a713": {
+      "_id": "2cb7ebd8-f66f-4e02-a76e-ca28c283a713",
+      "spamDetectionTolerance": 3,
+      "spamDetectionEnabled": false,
+      "exitMessage": {},
+      "waitingMessage": {},
+      "secondsToWait": 3,
+      "exitable": true,
+      "_type": {
+        "_id": "PollingWaitNode",
+        "name": "Polling Wait Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "DONE",
+          "displayName": "Done"
+        },
+        {
+          "id": "EXITED",
+          "displayName": "Exited"
+        }
+      ]
+    },
+    "3217f6aa-1e51-42b8-88c8-61a841f0a7fe": {
+      "_id": "3217f6aa-1e51-42b8-88c8-61a841f0a7fe",
+      "bgColor": "032b75",
+      "generateRecoveryCodes": true,
+      "accountName": "EMAIL_ADDRESS",
+      "issuer": "ForgeRock",
+      "timeout": 60,
+      "_type": {
+        "_id": "PushRegistrationNode",
+        "name": "Push Registration",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "successOutcome",
+          "displayName": "Success"
+        },
+        {
+          "id": "failureOutcome",
+          "displayName": "Failure"
+        },
+        {
+          "id": "timeoutOutcome",
+          "displayName": "Time Out"
+        }
+      ]
+    },
+    "4b7a59cd-f927-4719-b83b-2148ab4ce71d": {
+      "_id": "4b7a59cd-f927-4719-b83b-2148ab4ce71d",
+      "nodes": [
+        {
+          "_id": "4f3b3d17-ebc7-4949-acdd-5e2c34984523",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "395df849-e2c9-4e11-b075-657531108d97",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "6395229c-2875-4a4d-bf76-fe0ca353b23a": {
+      "_id": "6395229c-2875-4a4d-bf76-fe0ca353b23a",
+      "registerDeviceLabel": {},
+      "skipStepLabel": {},
+      "getAppLabel": {},
+      "message": {},
+      "getApp": true,
+      "optOutLabel": {},
+      "mandatory": false,
+      "_type": {
+        "_id": "MultiFactorRegistrationOptionsNode",
+        "name": "MFA Registration Options",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "registerOutcome",
+          "displayName": "Register"
+        },
+        {
+          "id": "getAppOutcome",
+          "displayName": "Get App"
+        },
+        {
+          "id": "skipOutcome",
+          "displayName": "Skip"
+        },
+        {
+          "id": "optOutOutcome",
+          "displayName": "Opt-out"
+        }
+      ]
+    },
+    "aa2f113f-e7fd-42b2-969e-4e8ea4d6352f": {
+      "_id": "aa2f113f-e7fd-42b2-969e-4e8ea4d6352f",
+      "userMessage": {},
+      "mandatory": false,
+      "messageTimeout": 120000,
+      "_type": {
+        "_id": "PushAuthenticationSenderNode",
+        "name": "Push Sender",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "SENT",
+          "displayName": "Sent"
+        },
+        {
+          "id": "NOT_REGISTERED",
+          "displayName": "Not Registered"
+        },
+        {
+          "id": "SKIPPED",
+          "displayName": "Skipped"
+        }
+      ]
+    },
+    "ba14cf75-5eb2-4394-b229-e43f886e5e16": {
+      "_id": "ba14cf75-5eb2-4394-b229-e43f886e5e16",
+      "continueLabel": {},
+      "message": {},
+      "googleLink": "https://play.google.com/store/apps/details?id=com.forgerock.authenticator",
+      "appleLink": "https://itunes.apple.com/app/forgerock-authenticator/id1038442926",
+      "_type": {
+        "_id": "GetAuthenticatorAppNode",
+        "name": "Get Authenticator App",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "cbb50589-a58c-4a2c-bbb1-13fe514461e6": {
+      "_id": "cbb50589-a58c-4a2c-bbb1-13fe514461e6",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "e100b7e9-c0ed-4321-a713-049f2f806eca": {
+      "_id": "e100b7e9-c0ed-4321-a713-049f2f806eca",
+      "recoveryCodeType": "PUSH",
+      "_type": {
+        "_id": "RecoveryCodeCollectorDecisionNode",
+        "name": "Recovery Code Collector Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "e4fd8f2c-1d6d-4bc0-a534-61c6186536b6": {
+      "_id": "e4fd8f2c-1d6d-4bc0-a534-61c6186536b6",
+      "_type": {
+        "_id": "PushResultVerifierNode",
+        "name": "Push Result Verifier Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "TRUE",
+          "displayName": "Success"
+        },
+        {
+          "id": "FALSE",
+          "displayName": "Failure"
+        },
+        {
+          "id": "EXPIRED",
+          "displayName": "Expired"
+        },
+        {
+          "id": "WAITING",
+          "displayName": "Waiting"
+        }
+      ]
+    },
+    "eb83e7b2-a02c-4294-ae78-9c2ca9d04165": {
+      "_id": "eb83e7b2-a02c-4294-ae78-9c2ca9d04165",
+      "_type": {
+        "_id": "RecoveryCodeDisplayNode",
+        "name": "Recovery Code Display Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "f0be7a20-6a00-4a73-93b2-fac7e9618c80": {
+      "_id": "f0be7a20-6a00-4a73-93b2-fac7e9618c80",
+      "_type": {
+        "_id": "OptOutMultiFactorAuthenticationNode",
+        "name": "Opt-out Multi-Factor Authentication",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "PUSH-Authn",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "4b7a59cd-f927-4719-b83b-2148ab4ce71d",
+    "nodes": {
+      "2cb7ebd8-f66f-4e02-a76e-ca28c283a713": {
+        "connections": {
+          "DONE": "e4fd8f2c-1d6d-4bc0-a534-61c6186536b6",
+          "EXITED": "e100b7e9-c0ed-4321-a713-049f2f806eca"
+        },
+        "displayName": "Polling Wait Node",
+        "nodeType": "PollingWaitNode",
+        "x": 695,
+        "y": 20
+      },
+      "3217f6aa-1e51-42b8-88c8-61a841f0a7fe": {
+        "connections": {
+          "failureOutcome": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "successOutcome": "eb83e7b2-a02c-4294-ae78-9c2ca9d04165",
+          "timeoutOutcome": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Push Registration",
+        "nodeType": "PushRegistrationNode",
+        "x": 692,
+        "y": 204
+      },
+      "4b7a59cd-f927-4719-b83b-2148ab4ce71d": {
+        "connections": {
+          "outcome": "cbb50589-a58c-4a2c-bbb1-13fe514461e6"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 105,
+        "y": 106
+      },
+      "6395229c-2875-4a4d-bf76-fe0ca353b23a": {
+        "connections": {
+          "getAppOutcome": "ba14cf75-5eb2-4394-b229-e43f886e5e16",
+          "optOutOutcome": "f0be7a20-6a00-4a73-93b2-fac7e9618c80",
+          "registerOutcome": "3217f6aa-1e51-42b8-88c8-61a841f0a7fe",
+          "skipOutcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "MFA Registration Options",
+        "nodeType": "MultiFactorRegistrationOptionsNode",
+        "x": 257,
+        "y": 306
+      },
+      "aa2f113f-e7fd-42b2-969e-4e8ea4d6352f": {
+        "connections": {
+          "NOT_REGISTERED": "6395229c-2875-4a4d-bf76-fe0ca353b23a",
+          "SENT": "2cb7ebd8-f66f-4e02-a76e-ca28c283a713",
+          "SKIPPED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Push Sender",
+        "nodeType": "PushAuthenticationSenderNode",
+        "x": 519,
+        "y": 30
+      },
+      "ba14cf75-5eb2-4394-b229-e43f886e5e16": {
+        "connections": {
+          "outcome": "3217f6aa-1e51-42b8-88c8-61a841f0a7fe"
+        },
+        "displayName": "Get Authenticator App",
+        "nodeType": "GetAuthenticatorAppNode",
+        "x": 521,
+        "y": 342
+      },
+      "cbb50589-a58c-4a2c-bbb1-13fe514461e6": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "aa2f113f-e7fd-42b2-969e-4e8ea4d6352f"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 303,
+        "y": 37
+      },
+      "e100b7e9-c0ed-4321-a713-049f2f806eca": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Recovery Code Collector Decision",
+        "nodeType": "RecoveryCodeCollectorDecisionNode",
+        "x": 884,
+        "y": 288
+      },
+      "e4fd8f2c-1d6d-4bc0-a534-61c6186536b6": {
+        "connections": {
+          "EXPIRED": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "FALSE": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "TRUE": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "WAITING": "2cb7ebd8-f66f-4e02-a76e-ca28c283a713"
+        },
+        "displayName": "Push Result Verifier Node",
+        "nodeType": "PushResultVerifierNode",
+        "x": 909,
+        "y": 22
+      },
+      "eb83e7b2-a02c-4294-ae78-9c2ca9d04165": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Recovery Code Display Node",
+        "nodeType": "RecoveryCodeDisplayNode",
+        "x": 904,
+        "y": 165
+      },
+      "f0be7a20-6a00-4a73-93b2-fac7e9618c80": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Opt-out Multi-Factor Authentication",
+        "nodeType": "OptOutMultiFactorAuthenticationNode",
+        "x": 535,
+        "y": 442
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1329,
+        "y": 372
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1308,
+        "y": 133
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

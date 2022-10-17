@@ -1,0 +1,164 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "999dd057-62fd-40ec-a381-c8c514d5422f": {
+      "_id": "999dd057-62fd-40ec-a381-c8c514d5422f",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "1baee4bc-aae5-4698-87b8-3246f87cf727": {
+      "_id": "1baee4bc-aae5-4698-87b8-3246f87cf727",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "75ec4a84-d756-4f6d-98b3-3fbdde77bd56": {
+      "_id": "75ec4a84-d756-4f6d-98b3-3fbdde77bd56",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "9284b2b3-6d31-4b59-8e24-8d2c50b64d5f": {
+      "_id": "9284b2b3-6d31-4b59-8e24-8d2c50b64d5f",
+      "nodes": [
+        {
+          "_id": "999dd057-62fd-40ec-a381-c8c514d5422f",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "1baee4bc-aae5-4698-87b8-3246f87cf727",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "afb4bd1b-5d95-4fe6-a745-e99d85d86908": {
+      "_id": "afb4bd1b-5d95-4fe6-a745-e99d85d86908",
+      "messageYes": {
+        "en": "Yes"
+      },
+      "message": {
+        "en": "Test"
+      },
+      "messageNo": {
+        "en": "No"
+      },
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "ConfirmationCallbackTest",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "9284b2b3-6d31-4b59-8e24-8d2c50b64d5f",
+    "nodes": {
+      "75ec4a84-d756-4f6d-98b3-3fbdde77bd56": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "afb4bd1b-5d95-4fe6-a745-e99d85d86908"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 341,
+        "y": 90
+      },
+      "9284b2b3-6d31-4b59-8e24-8d2c50b64d5f": {
+        "connections": {
+          "outcome": "75ec4a84-d756-4f6d-98b3-3fbdde77bd56"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 140,
+        "y": 34
+      },
+      "afb4bd1b-5d95-4fe6-a745-e99d85d86908": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Message Node",
+        "nodeType": "MessageNode",
+        "x": 533,
+        "y": 39
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 721,
+        "y": 44
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 755,
+        "y": 132
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

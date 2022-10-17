@@ -1,0 +1,212 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "9007ad6d-6448-46d2-8bab-af68ed4d9dcf": {
+      "_id": "9007ad6d-6448-46d2-8bab-af68ed4d9dcf",
+      "usernameAttribute": "userName",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedUsernameNode",
+        "name": "Platform Username",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "77e935ae-840a-44a0-a3a5-a61c1cc187d5": {
+      "_id": "77e935ae-840a-44a0-a3a5-a61c1cc187d5",
+      "passwordAttribute": "password",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedPasswordNode",
+        "name": "Platform Password",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "12a270ba-a47f-4d02-b946-b15c4acdefcc": {
+      "_id": "12a270ba-a47f-4d02-b946-b15c4acdefcc",
+      "attributesToCollect": [
+        "sn",
+        "givenName",
+        "mail"
+      ],
+      "identityAttribute": "userName",
+      "validateInputs": false,
+      "required": false,
+      "_type": {
+        "_id": "AttributeCollectorNode",
+        "name": "Attribute Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "1495f079-3bc9-4dbd-94f3-3cff98e3a143": {
+      "_id": "1495f079-3bc9-4dbd-94f3-3cff98e3a143",
+      "nodes": [
+        {
+          "_id": "9007ad6d-6448-46d2-8bab-af68ed4d9dcf",
+          "nodeType": "ValidatedUsernameNode",
+          "displayName": "Platform Username"
+        },
+        {
+          "_id": "77e935ae-840a-44a0-a3a5-a61c1cc187d5",
+          "nodeType": "ValidatedPasswordNode",
+          "displayName": "Platform Password"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "6f88e880-5932-4fbb-b61b-85307722ed0e": {
+      "_id": "6f88e880-5932-4fbb-b61b-85307722ed0e",
+      "_type": {
+        "_id": "AcceptTermsAndConditionsNode",
+        "name": "Accept Terms and Conditions",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "a5a55b52-bdf4-4e57-be15-813711aade85": {
+      "_id": "a5a55b52-bdf4-4e57-be15-813711aade85",
+      "message": {
+        "en": "Please, provide security questions/answers"
+      },
+      "_type": {
+        "_id": "KbaCreateNode",
+        "name": "KBA Definition",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "c3b52f67-06ac-4cec-b706-a44e9a1ca5ab": {
+      "_id": "c3b52f67-06ac-4cec-b706-a44e9a1ca5ab",
+      "identityResource": "managed/user",
+      "_type": {
+        "_id": "CreateObjectNode",
+        "name": "Create Object",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "CREATED",
+          "displayName": "Created"
+        },
+        {
+          "id": "FAILURE",
+          "displayName": "Failed"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "UserSignUp",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "1495f079-3bc9-4dbd-94f3-3cff98e3a143",
+    "nodes": {
+      "12a270ba-a47f-4d02-b946-b15c4acdefcc": {
+        "connections": {
+          "outcome": "a5a55b52-bdf4-4e57-be15-813711aade85"
+        },
+        "displayName": "Attribute Collector",
+        "nodeType": "AttributeCollectorNode",
+        "x": 333,
+        "y": 66
+      },
+      "1495f079-3bc9-4dbd-94f3-3cff98e3a143": {
+        "connections": {
+          "outcome": "12a270ba-a47f-4d02-b946-b15c4acdefcc"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 142,
+        "y": 32
+      },
+      "6f88e880-5932-4fbb-b61b-85307722ed0e": {
+        "connections": {
+          "outcome": "c3b52f67-06ac-4cec-b706-a44e9a1ca5ab"
+        },
+        "displayName": "Accept Terms and Conditions",
+        "nodeType": "AcceptTermsAndConditionsNode",
+        "x": 507,
+        "y": 198
+      },
+      "a5a55b52-bdf4-4e57-be15-813711aade85": {
+        "connections": {
+          "outcome": "6f88e880-5932-4fbb-b61b-85307722ed0e"
+        },
+        "displayName": "KBA Definition",
+        "nodeType": "KbaCreateNode",
+        "x": 457,
+        "y": 132
+      },
+      "c3b52f67-06ac-4cec-b706-a44e9a1ca5ab": {
+        "connections": {
+          "CREATED": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0",
+          "FAILURE": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "displayName": "Create Object",
+        "nodeType": "CreateObjectNode",
+        "x": 708,
+        "y": 266
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 872,
+        "y": 238
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 882,
+        "y": 345
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

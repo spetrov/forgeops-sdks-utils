@@ -1,0 +1,155 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "12262b5e-620d-47ce-ae6d-6a5c2a5637cd": {
+      "_id": "12262b5e-620d-47ce-ae6d-6a5c2a5637cd",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "cec66b22-a151-4bf6-8f8d-1f05fb57c912": {
+      "_id": "cec66b22-a151-4bf6-8f8d-1f05fb57c912",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "a143cdeb-8a93-49b8-aabb-59df283416ac": {
+      "_id": "a143cdeb-8a93-49b8-aabb-59df283416ac",
+      "nodes": [
+        {
+          "_id": "12262b5e-620d-47ce-ae6d-6a5c2a5637cd",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "cec66b22-a151-4bf6-8f8d-1f05fb57c912",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "edb811b0-18b0-4633-9c8b-83626f3de037": {
+      "_id": "edb811b0-18b0-4633-9c8b-83626f3de037",
+      "siteKey": "siteKey",
+      "apiUri": "https://www.google.com/recaptcha/api.js",
+      "divClass": "g-recaptcha",
+      "reCaptchaUri": "https://www.google.com/recaptcha/api/siteverify",
+      "secretKey": "dummy",
+      "_type": {
+        "_id": "product-ReCaptchaNode",
+        "name": "Legacy CAPTCHA",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "f5c50812-53ed-4ca9-ae42-ee0bf45dc117": {
+      "_id": "f5c50812-53ed-4ca9-ae42-ee0bf45dc117",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "RecaptchaCallbackTest",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "a143cdeb-8a93-49b8-aabb-59df283416ac",
+    "nodes": {
+      "a143cdeb-8a93-49b8-aabb-59df283416ac": {
+        "connections": {
+          "outcome": "f5c50812-53ed-4ca9-ae42-ee0bf45dc117"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 138,
+        "y": 32
+      },
+      "edb811b0-18b0-4633-9c8b-83626f3de037": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "CAPTCHA",
+        "nodeType": "product-ReCaptchaNode",
+        "x": 555,
+        "y": 64
+      },
+      "f5c50812-53ed-4ca9-ae42-ee0bf45dc117": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "edb811b0-18b0-4633-9c8b-83626f3de037"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 342,
+        "y": 35
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 566,
+        "y": 207
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 448,
+        "y": 211
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "fa78fb5d-8909-42ed-ad65-d3ff24d18501": {
+      "_id": "fa78fb5d-8909-42ed-ad65-d3ff24d18501",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "44d61c01-fa2d-4313-84b2-6137e9cafa8d": {
+      "_id": "44d61c01-fa2d-4313-84b2-6137e9cafa8d",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "c0cd577e-0cd1-484a-97f4-ee515dc19c29": {
+      "_id": "c0cd577e-0cd1-484a-97f4-ee515dc19c29",
+      "persistentCookieName": "session-jwt",
+      "useHttpOnlyCookie": true,
+      "useSecureCookie": true,
+      "hmacSigningKey": null,
+      "idleTimeout": 5,
+      "maxLife": 5,
+      "_type": {
+        "_id": "SetPersistentCookieNode",
+        "name": "Set Persistent Cookie",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "d98f55b5-7228-42f1-948e-7a1924e2b3b2": {
+      "_id": "d98f55b5-7228-42f1-948e-7a1924e2b3b2",
+      "nodes": [
+        {
+          "_id": "fa78fb5d-8909-42ed-ad65-d3ff24d18501",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "44d61c01-fa2d-4313-84b2-6137e9cafa8d",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "dd855f28-4518-4454-ad21-e7f6dbf75baf": {
+      "_id": "dd855f28-4518-4454-ad21-e7f6dbf75baf",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "SetPersistentCookieTest",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "d98f55b5-7228-42f1-948e-7a1924e2b3b2",
+    "nodes": {
+      "c0cd577e-0cd1-484a-97f4-ee515dc19c29": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Set Persistent Cookie",
+        "nodeType": "SetPersistentCookieNode",
+        "x": 512,
+        "y": 28
+      },
+      "d98f55b5-7228-42f1-948e-7a1924e2b3b2": {
+        "connections": {
+          "outcome": "dd855f28-4518-4454-ad21-e7f6dbf75baf"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 142,
+        "y": 68.59375
+      },
+      "dd855f28-4518-4454-ad21-e7f6dbf75baf": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "c0cd577e-0cd1-484a-97f4-ee515dc19c29"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 343,
+        "y": 56.96875
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 688,
+        "y": 146
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 499,
+        "y": 182
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

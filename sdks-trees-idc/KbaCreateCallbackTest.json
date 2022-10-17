@@ -1,0 +1,157 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "fade7c79-e68b-4aa7-b862-35dae907ccc0": {
+      "_id": "fade7c79-e68b-4aa7-b862-35dae907ccc0",
+      "usernameAttribute": "userName",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedUsernameNode",
+        "name": "Platform Username",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "2dc37214-50fa-4408-920d-644e43366859": {
+      "_id": "2dc37214-50fa-4408-920d-644e43366859",
+      "passwordAttribute": "password",
+      "validateInput": false,
+      "_type": {
+        "_id": "ValidatedPasswordNode",
+        "name": "Platform Password",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "2d72119f-6b42-4f28-bb76-5cf93c6b7223": {
+      "_id": "2d72119f-6b42-4f28-bb76-5cf93c6b7223",
+      "nodes": [
+        {
+          "_id": "fade7c79-e68b-4aa7-b862-35dae907ccc0",
+          "nodeType": "ValidatedUsernameNode",
+          "displayName": "Platform Username"
+        },
+        {
+          "_id": "2dc37214-50fa-4408-920d-644e43366859",
+          "nodeType": "ValidatedPasswordNode",
+          "displayName": "Platform Password"
+        }
+      ],
+      "pageDescription": {},
+      "pageHeader": {},
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "72d1bf88-e496-4750-b0ff-ca64d06dd4e5": {
+      "_id": "72d1bf88-e496-4750-b0ff-ca64d06dd4e5",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "81daca51-bcf1-4080-8e0a-a23e46c82763": {
+      "_id": "81daca51-bcf1-4080-8e0a-a23e46c82763",
+      "message": {
+        "en": "Security questions"
+      },
+      "_type": {
+        "_id": "KbaCreateNode",
+        "name": "KBA Definition",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "KbaCreateCallbackTest",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "2d72119f-6b42-4f28-bb76-5cf93c6b7223",
+    "nodes": {
+      "2d72119f-6b42-4f28-bb76-5cf93c6b7223": {
+        "connections": {
+          "outcome": "72d1bf88-e496-4750-b0ff-ca64d06dd4e5"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 146,
+        "y": 20
+      },
+      "72d1bf88-e496-4750-b0ff-ca64d06dd4e5": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "81daca51-bcf1-4080-8e0a-a23e46c82763"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 361,
+        "y": 20
+      },
+      "81daca51-bcf1-4080-8e0a-a23e46c82763": {
+        "connections": {
+          "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "KBA Definition",
+        "nodeType": "KbaCreateNode",
+        "x": 527,
+        "y": 40
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 527,
+        "y": 167
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 362,
+        "y": 161
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}

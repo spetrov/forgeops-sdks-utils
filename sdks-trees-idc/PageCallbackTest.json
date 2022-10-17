@@ -1,0 +1,132 @@
+
+{
+  "origin": "3cb4b2f3efb41d28ab8374b9e8936095",
+  "innernodes": {
+    "c13ac6ce-a5d6-4347-b5fd-7019d4a86fff": {
+      "_id": "c13ac6ce-a5d6-4347-b5fd-7019d4a86fff",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "627d24da-5442-4fc4-84ea-3a4e482fb140": {
+      "_id": "627d24da-5442-4fc4-84ea-3a4e482fb140",
+      "_type": {
+        "_id": "PasswordCollectorNode",
+        "name": "Password Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "nodes": {
+    "5a75ee02-6e18-4c81-b41a-45a21856ee98": {
+      "_id": "5a75ee02-6e18-4c81-b41a-45a21856ee98",
+      "_type": {
+        "_id": "DataStoreDecisionNode",
+        "name": "Data Store Decision",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "647234f2-4a55-4838-a03f-ee8f186a233c": {
+      "_id": "647234f2-4a55-4838-a03f-ee8f186a233c",
+      "nodes": [
+        {
+          "_id": "c13ac6ce-a5d6-4347-b5fd-7019d4a86fff",
+          "nodeType": "UsernameCollectorNode",
+          "displayName": "Username Collector"
+        },
+        {
+          "_id": "627d24da-5442-4fc4-84ea-3a4e482fb140",
+          "nodeType": "PasswordCollectorNode",
+          "displayName": "Password Collector"
+        }
+      ],
+      "pageDescription": {
+        "en": "Page Description Test"
+      },
+      "stage": "Test",
+      "pageHeader": {
+        "en": "Page Header Test"
+      },
+      "_type": {
+        "_id": "PageNode",
+        "name": "Page Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "PageCallbackTest",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "647234f2-4a55-4838-a03f-ee8f186a233c",
+    "nodes": {
+      "5a75ee02-6e18-4c81-b41a-45a21856ee98": {
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "displayName": "Data Store Decision",
+        "nodeType": "DataStoreDecisionNode",
+        "x": 355,
+        "y": 85
+      },
+      "647234f2-4a55-4838-a03f-ee8f186a233c": {
+        "connections": {
+          "outcome": "5a75ee02-6e18-4c81-b41a-45a21856ee98"
+        },
+        "displayName": "Page Node",
+        "nodeType": "PageNode",
+        "x": 151,
+        "y": 24
+      }
+    },
+    "staticNodes": {
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 558,
+        "y": 97
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 561,
+        "y": 173
+      },
+      "startNode": {
+        "x": 50,
+        "y": 25
+      }
+    }
+  }
+}
