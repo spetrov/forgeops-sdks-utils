@@ -1,0 +1,384 @@
+
+{
+  "origin": "35ce4bf2e148ef1e6f0fed1224f908bc",
+  "innernodes": {},
+  "nodes": {
+    "08fca6a1-77c8-4d54-ba3e-78f4fb5648ea": {
+      "_id": "08fca6a1-77c8-4d54-ba3e-78f4fb5648ea",
+      "messageYes": {},
+      "message": {
+        "en": "Timeout"
+      },
+      "messageNo": {},
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "14242e4d-f49b-4544-be5e-f6e69bd7bc38": {
+      "_id": "14242e4d-f49b-4544-be5e-f6e69bd7bc38",
+      "messageYes": {},
+      "message": {
+        "en": "Abort"
+      },
+      "messageNo": {},
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "2083bd91-d04f-4d0f-bfd5-9cd6e3d9ce79": {
+      "_id": "2083bd91-d04f-4d0f-bfd5-9cd6e3d9ce79",
+      "subtitle": {
+        "en": "Application PIN"
+      },
+      "clientErrorOutcomes": [
+        "Unsupported",
+        "Abort",
+        "Timeout"
+      ],
+      "description": {
+        "en": "Please, enter your Application PIN to continue"
+      },
+      "challenge": true,
+      "title": {
+        "en": "Authentication Required"
+      },
+      "timeout": 60,
+      "_type": {
+        "_id": "DeviceSigningVerifierNode",
+        "name": "Device Signing Verifier",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "noDeviceRegistered",
+          "displayName": "No Registered Device"
+        },
+        {
+          "id": "keyNotFound",
+          "displayName": "Key not found"
+        },
+        {
+          "id": "Unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "Abort",
+          "displayName": "Abort"
+        },
+        {
+          "id": "Timeout",
+          "displayName": "Timeout"
+        }
+      ]
+    },
+    "26d3d11d-0dd8-488e-881d-bc76bffe850d": {
+      "_id": "26d3d11d-0dd8-488e-881d-bc76bffe850d",
+      "subtitle": {
+        "en": "Enter an Application PIN"
+      },
+      "maxSavedDevices": 0,
+      "authenticationType": "BIOMETRIC_ALLOW_FALLBACK",
+      "clientErrorOutcomes": [
+        "Unsupported",
+        "Abort",
+        "Timeout"
+      ],
+      "description": {
+        "en": "Please enter your application pin"
+      },
+      "title": {
+        "en": "Application PIN Required"
+      },
+      "timeout": 60,
+      "_type": {
+        "_id": "DeviceBindingNode",
+        "name": "Device Binding",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "success",
+          "displayName": "Success"
+        },
+        {
+          "id": "failure",
+          "displayName": "Failure"
+        },
+        {
+          "id": "Unsupported",
+          "displayName": "Unsupported"
+        },
+        {
+          "id": "Abort",
+          "displayName": "Abort"
+        },
+        {
+          "id": "Timeout",
+          "displayName": "Timeout"
+        }
+      ]
+    },
+    "2da8ce11-1362-43c1-ae67-d0fa84d612b8": {
+      "_id": "2da8ce11-1362-43c1-ae67-d0fa84d612b8",
+      "_type": {
+        "_id": "UsernameCollectorNode",
+        "name": "Username Collector",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "outcome",
+          "displayName": "Outcome"
+        }
+      ]
+    },
+    "31d361b1-3615-45fa-82d5-40bf5b44d1cd": {
+      "_id": "31d361b1-3615-45fa-82d5-40bf5b44d1cd",
+      "messageYes": {},
+      "message": {
+        "en": "Unsupported"
+      },
+      "messageNo": {},
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "38370998-8f8b-4477-801d-38f8a8bf11b5": {
+      "_id": "38370998-8f8b-4477-801d-38f8a8bf11b5",
+      "messageYes": {},
+      "message": {
+        "en": "Key Not Found"
+      },
+      "messageNo": {},
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "773ba909-d4b0-40d9-be54-63b651545665": {
+      "_id": "773ba909-d4b0-40d9-be54-63b651545665",
+      "messageYes": {},
+      "message": {
+        "en": "Failure"
+      },
+      "messageNo": {},
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    },
+    "cab66b7d-f691-4a73-aa9a-cbeb196fe63c": {
+      "_id": "cab66b7d-f691-4a73-aa9a-cbeb196fe63c",
+      "messageYes": {},
+      "message": {
+        "en": "No Registered Device"
+      },
+      "messageNo": {},
+      "_type": {
+        "_id": "MessageNode",
+        "name": "Message Node",
+        "collection": true
+      },
+      "_outcomes": [
+        {
+          "id": "true",
+          "displayName": "True"
+        },
+        {
+          "id": "false",
+          "displayName": "False"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "emailTemplates": {},
+  "tree": {
+    "_id": "sign-verifier-stoyan",
+    "identityResource": "managed/alpha_user",
+    "uiConfig": {
+      "categories": "[]"
+    },
+    "entryNodeId": "2da8ce11-1362-43c1-ae67-d0fa84d612b8",
+    "nodes": {
+      "08fca6a1-77c8-4d54-ba3e-78f4fb5648ea": {
+        "x": 664,
+        "y": 601.015625,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "nodeType": "MessageNode",
+        "displayName": "Timeout"
+      },
+      "14242e4d-f49b-4544-be5e-f6e69bd7bc38": {
+        "x": 655,
+        "y": 467.015625,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "nodeType": "MessageNode",
+        "displayName": "Abort"
+      },
+      "2083bd91-d04f-4d0f-bfd5-9cd6e3d9ce79": {
+        "x": 293,
+        "y": 30.015625,
+        "connections": {
+          "Abort": "14242e4d-f49b-4544-be5e-f6e69bd7bc38",
+          "Timeout": "08fca6a1-77c8-4d54-ba3e-78f4fb5648ea",
+          "Unsupported": "31d361b1-3615-45fa-82d5-40bf5b44d1cd",
+          "failure": "773ba909-d4b0-40d9-be54-63b651545665",
+          "keyNotFound": "38370998-8f8b-4477-801d-38f8a8bf11b5",
+          "noDeviceRegistered": "cab66b7d-f691-4a73-aa9a-cbeb196fe63c",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "nodeType": "DeviceSigningVerifierNode",
+        "displayName": "Device Signing Verifier"
+      },
+      "26d3d11d-0dd8-488e-881d-bc76bffe850d": {
+        "x": 85,
+        "y": 441.3680419921875,
+        "connections": {
+          "Abort": "14242e4d-f49b-4544-be5e-f6e69bd7bc38",
+          "Timeout": "08fca6a1-77c8-4d54-ba3e-78f4fb5648ea",
+          "Unsupported": "31d361b1-3615-45fa-82d5-40bf5b44d1cd",
+          "failure": "773ba909-d4b0-40d9-be54-63b651545665",
+          "success": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+        },
+        "nodeType": "DeviceBindingNode",
+        "displayName": "Device Binding"
+      },
+      "2da8ce11-1362-43c1-ae67-d0fa84d612b8": {
+        "x": 2,
+        "y": 181.3680419921875,
+        "connections": {
+          "outcome": "26d3d11d-0dd8-488e-881d-bc76bffe850d"
+        },
+        "nodeType": "UsernameCollectorNode",
+        "displayName": "Username Collector"
+      },
+      "31d361b1-3615-45fa-82d5-40bf5b44d1cd": {
+        "x": 656,
+        "y": 351.015625,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "nodeType": "MessageNode",
+        "displayName": "Unsupported"
+      },
+      "38370998-8f8b-4477-801d-38f8a8bf11b5": {
+        "x": 650,
+        "y": 235.015625,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "nodeType": "MessageNode",
+        "displayName": "Key Not Found"
+      },
+      "773ba909-d4b0-40d9-be54-63b651545665": {
+        "x": 646,
+        "y": 11.015625,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "nodeType": "MessageNode",
+        "displayName": "Failure"
+      },
+      "cab66b7d-f691-4a73-aa9a-cbeb196fe63c": {
+        "x": 644,
+        "y": 123.015625,
+        "connections": {
+          "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+          "true": "e301438c-0bd0-429c-ab0c-66126501069a"
+        },
+        "nodeType": "MessageNode",
+        "displayName": "No Device"
+      }
+    },
+    "staticNodes": {
+      "startNode": {
+        "x": 29,
+        "y": 9
+      },
+      "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+        "x": 1022,
+        "y": 95
+      },
+      "e301438c-0bd0-429c-ab0c-66126501069a": {
+        "x": 1006,
+        "y": 444
+      }
+    },
+    "enabled": true
+  }
+}
